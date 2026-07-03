@@ -219,6 +219,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     e: 'eventType',
     E: 'eventTime',
     i: 'symbol',
+    s: 'symbol',
     p: 'indexPrice',
   },
   indexOptionsEvent: {
