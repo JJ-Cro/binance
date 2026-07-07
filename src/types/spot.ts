@@ -37,7 +37,8 @@ export type SymbolStatus =
   | 'END_OF_DAY'
   | 'HALT'
   | 'AUCTION_MATCH'
-  | 'BREAK';
+  | 'BREAK'
+  | 'CANCEL_ONLY';
 
 export interface SystemStatusResponse {
   status: 0 | 1;
@@ -6498,6 +6499,78 @@ export interface VASPInfo {
   identifier?: string;
 }
 
+export interface TravelRuleCountryInfo {
+  countryCode: string;
+  countryName: string;
+  blockType: 'supported' | 'limited' | 'blocked';
+  depositAllowed: boolean;
+  withdrawalAllowed: boolean;
+  hasRegionRestrictions: boolean;
+}
+
+export interface TravelRuleCountryListResponse {
+  countries: TravelRuleCountryInfo[];
+  lastUpdated: number;
+}
+
+export interface GetTravelRuleRegionListParams {
+  countryCode: string;
+}
+
+export interface TravelRuleRegionInfo {
+  regionName: string;
+  blockType: 'supported' | 'limited' | 'blocked';
+  depositAllowed: boolean;
+  withdrawalAllowed: boolean;
+}
+
+export interface TravelRuleRegionListResponse {
+  countryCode: string;
+  regions: TravelRuleRegionInfo[];
+  lastUpdated: number;
+}
+
+export interface GetVipLoanFixedRateMarketParams {
+  loanCoin: string;
+  duration?: number;
+  current?: number;
+  size?: number;
+}
+
+export interface VipLoanFixedRateMarketRecord {
+  requestId: number;
+  requestNo: number;
+  coin: string;
+  interestRate: numberInString;
+  duration: number;
+  minimumAmount: numberInString;
+  availableAmount: numberInString;
+  estimatedInterest: numberInString;
+}
+
+export interface VipLoanFixedRateBorrowParams {
+  supplyRequest: string;
+  borrowCoin: string;
+  loanTerm: number;
+  borrowUid: number;
+  collateralCoin: string;
+  collateralAccountId: string;
+  autoRepay?: boolean;
+}
+
+export interface VipLoanFixedRateBorrowResponse {
+  borrowCoin: string;
+  borrowAmount: numberInString;
+  actualReceivedAmount: numberInString;
+  collateralCoin: string;
+  collateralAccountId: string;
+  borrowInterestRate: numberInString;
+  duration: string;
+  autoRepay: boolean;
+  orderId: number;
+  status: 'Succeeds' | 'Failed' | 'Processing';
+}
+
 // Institutional Loan types
 export interface InstitutionalLoanLiability {
   assetName: string;
@@ -6626,6 +6699,15 @@ export interface InstitutionalLoanRiskUnitTransferParams {
 }
 
 // Additional institutional loan types for borrow, repay, and interest history
+export interface GetInstitutionalLoanMaxBorrowableParams {
+  groupId?: number;
+  assetName: string;
+}
+
+export interface InstitutionalLoanMaxBorrowableResponse {
+  maxBorrowableAmount: numberInString | null;
+}
+
 export interface InstitutionalLoanBorrowParams {
   groupId: number;
   assetName: string;

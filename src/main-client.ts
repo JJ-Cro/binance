@@ -275,6 +275,7 @@ import {
   GetInstitutionalLoanForceLiquidationParams,
   GetInstitutionalLoanForceLiquidationResponse,
   GetInstitutionalLoanInterestHistoryParams,
+  GetInstitutionalLoanMaxBorrowableParams,
   GetInstitutionalLoanRiskUnitDetailsParams,
   GetLoanableAssetsDataParams,
   GetLoanBorrowHistoryParams,
@@ -348,9 +349,11 @@ import {
   GetTargetAssetListResponse,
   GetTargetAssetROIParams,
   GetTravelRuleDepositHistoryParams,
+  GetTravelRuleRegionListParams,
   GetTravelRuleWithdrawHistoryParams,
   GetTravelRuleWithdrawHistoryV2Params,
   GetUniversalTransferBrokerParams,
+  GetVipLoanFixedRateMarketParams,
   GetVipLoanOngoingOrdersParams,
   GetVipLoanRepaymentHistoryParams,
   GetWbethRewardsHistoryResponse,
@@ -363,6 +366,7 @@ import {
   InstitutionalLoanBorrowParams,
   InstitutionalLoanBorrowResponse,
   InstitutionalLoanInterestHistoryResponse,
+  InstitutionalLoanMaxBorrowableResponse,
   InstitutionalLoanRepayParams,
   InstitutionalLoanRepayResponse,
   InstitutionalLoanRiskUnitDetails,
@@ -646,7 +650,9 @@ import {
   TradingDayTickerSingle,
   TransferBrokerSubAccount,
   TransferBrokerSubAccountParams,
+  TravelRuleCountryListResponse,
   TravelRuleDepositHistoryRecord,
+  TravelRuleRegionListResponse,
   TravelRuleWithdrawHistoryRecord,
   UniversalTransferBrokerParams,
   UniversalTransferHistoryParams,
@@ -660,6 +666,9 @@ import {
   VipLoanAccruedInterestRecord,
   VipLoanBorrowParams,
   VipLoanBorrowResponse,
+  VipLoanFixedRateBorrowParams,
+  VipLoanFixedRateBorrowResponse,
+  VipLoanFixedRateMarketRecord,
   VipLoanInterestRateHistoryParams,
   VipLoanInterestRateRecord,
   VipLoanRenewParams,
@@ -1956,6 +1965,16 @@ export class MainClient extends BaseRestClient {
    */
   getOnboardedVASPList(): Promise<VASPInfo[]> {
     return this.getPrivate('sapi/v1/localentity/vasp');
+  }
+
+  getTravelRuleCountryList(): Promise<TravelRuleCountryListResponse> {
+    return this.getPrivate('sapi/v1/localentity/country/list');
+  }
+
+  getTravelRuleRegionList(
+    params: GetTravelRuleRegionListParams,
+  ): Promise<TravelRuleRegionListResponse> {
+    return this.getPrivate('sapi/v1/localentity/region/list', params);
   }
 
   /**
@@ -3837,6 +3856,19 @@ export class MainClient extends BaseRestClient {
     return this.postPrivate('sapi/v1/loan/vip/borrow', params);
   }
 
+  getVipLoanFixedRateMarket(params: GetVipLoanFixedRateMarketParams): Promise<{
+    total: number;
+    rows: VipLoanFixedRateMarketRecord[];
+  }> {
+    return this.getPrivate('sapi/v1/loan/vip/fixed/market', params);
+  }
+
+  borrowVipLoanFixedRate(
+    params: VipLoanFixedRateBorrowParams,
+  ): Promise<VipLoanFixedRateBorrowResponse> {
+    return this.postPrivate('sapi/v1/loan/vip/fixed/borrow', params);
+  }
+
   /**
    *
    * DUAL INVESTMENT Endpoints - Market Data
@@ -4317,6 +4349,12 @@ export class MainClient extends BaseRestClient {
    * INSTITUTIONAL LOAN - Borrow/Repay Endpoints
    *
    **/
+
+  getInstitutionalLoanMaxBorrowable(
+    params: GetInstitutionalLoanMaxBorrowableParams,
+  ): Promise<InstitutionalLoanMaxBorrowableResponse> {
+    return this.getPrivate('sapi/v1/margin/loan-group/max-borrowable', params);
+  }
 
   borrowInstitutionalLoan(
     params: InstitutionalLoanBorrowParams,

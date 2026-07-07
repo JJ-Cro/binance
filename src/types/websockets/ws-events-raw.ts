@@ -476,7 +476,8 @@ export interface WsMessageFuturesUserDataAccountConfigUpdateEventRaw
 export interface WsMessageIndexPriceUpdateEventRaw extends WsSharedBase {
   e: 'indexPriceUpdate';
   E: number;
-  i: string;
+  i?: string;
+  s?: string;
   p: numberInString;
 }
 
