@@ -1,23 +1,230 @@
+<!-- siebly:metadata
+siebly:
+  version: 1
+  hero:
+    headline: Binance API JavaScript Tutorial for Node.js and TypeScript
+    badges:
+      - Spot
+      - Futures
+      - Portfolio Margin
+      - Market Data Streams
+      - User data Streams
+      - WebSocket API
+    summary: Build Binance API integrations without writing your own request signing, listen-key renewal, WebSocket health checks, reconnect loops, response matching, or endpoint routing.
+    codeFilename: first-binance-call.ts
+    codeStatus: public REST API
+    startSectionId: start-building-first-calls
+  software:
+    description: Node.js and JavaScript SDK for Binance Spot, Margin, Futures, Portfolio Margin, WebSockets, user data streams, and WebSocket API workflows.
+    topics:
+      - Binance Spot REST API
+      - Binance Margin REST API
+      - Binance Futures REST API
+      - Binance Portfolio Margin REST API
+      - Binance WebSockets
+      - Binance user data streams
+      - Binance WebSocket API
+  machineCatalog:
+    label: Binance API JavaScript Tutorial
+    topics:
+      - Spot REST API
+      - Margin REST API
+      - USD-M Futures REST API
+      - COIN-M Futures REST API
+      - Portfolio Margin REST API
+      - public WebSockets
+      - private user data streams
+      - WebSocket API commands
+      - production reconnect handling
+  sdkPagePromo:
+    descriptionBeforePackage: 'A practical JavaScript guide to using '
+    descriptionAfterPackage: ' across Binance Spot, margin, USD-M Futures, COIN-M Futures, Portfolio Margin, public streams, user data, WebSocket API commands, and production rollout checks.'
+    highlights:
+      - Product-specific REST API clients
+      - Public and user data WebSocket streams
+      - WebSocket API request/response commands
+      - Demo, testnet, and resilient networking
+    exampleHref: /examples/Binance/WebSockets/WS-API/ws-api-client
+    exampleLabel: WebSocket API example
+    architectureClientSummary: MainClient, USDMClient, WebsocketAPIClient
+    architectureApiTitle: Binance APIs
+    architectureApiSummary: Spot, Futures, Portfolio Margin, streams, WebSocket API
+  surfaceMap:
+    heading: One Binance SDK, all product groups
+    summary: The Binance JavaScript SDK covers Spot, Margin, Wallet, Futures, Portfolio Margin, WebSockets, and WebSocket API workflows. Pick the client for the product you are using; authentication, async calls, events, and TypeScript types work consistently across the SDK.
+    appLabel: Bot, dashboard, worker, tool
+    appSummary: Any Node.js or JavaScript-compatible service that needs to integrate with Binance APIs, including but not limited to market data, account state, or order management.
+    apiLabel: Binance APIs
+    apiItems:
+      - Spot, margin, wallet, and account REST APIs
+      - USD-M and COIN-M Futures REST APIs
+      - Portfolio Margin REST APIs
+      - Public streams, user data, and WebSocket APIs
+    packageNodes:
+      - label: MainClient
+        summary: Spot, margin, wallet, earn, sub-accounts
+        href: https://github.com/tiagosiebler/binance/blob/master/src/main-client.ts
+      - label: USDMClient
+        summary: USD-M Futures REST API
+        href: https://github.com/tiagosiebler/binance/blob/master/src/usdm-client.ts
+      - label: CoinMClient
+        summary: COIN-M Futures REST API
+        href: https://github.com/tiagosiebler/binance/blob/master/src/coinm-client.ts
+      - label: PortfolioClient
+        summary: Portfolio Margin REST API
+        href: https://github.com/tiagosiebler/binance/blob/master/src/portfolio-client.ts
+      - label: WebsocketClient
+        summary: Public streams and listen-key user data
+        href: https://github.com/tiagosiebler/binance/blob/master/src/websocket-client.ts
+      - label: WebsocketAPIClient
+        summary: Awaitable WebSocket API commands
+        href: https://github.com/tiagosiebler/binance/blob/master/src/websocket-api-client.ts
+  coverage:
+    heading: Start with the right Binance API client
+    summary: The guide starts with public calls, then moves into private account streams, trading commands, environments, reconnects, and the checks you need before production.
+    cards:
+      - heading: Client selection
+        summary: Map Spot, margin, Futures, Portfolio Margin, streams, and WebSocket API commands to the right SDK client.
+      - heading: Auth and environments
+        summary: Use HMAC, RSA, or Ed25519 keys, and keep live, demo, and testnet credentials separate.
+      - heading: Streams and user data
+        summary: Set up public streams, Spot user data, listen-key flows, reconnect handling, and REST API backfills.
+      - heading: Production guardrails
+        summary: Plan for client order IDs, timestamp windows, rate-limit state, large integers, logging, and staged rollout.
+  snippets:
+    heading: First REST API calls, streams, user data, and WebSocket API commands, with just a few lines of code.
+    summary: Run one of these first to verify the client, keys, and stream setup. The full guide below explains the surrounding workflow.
+    labels:
+      spot-rest: Spot REST API
+      public-websocket: Public stream
+      user-data: User data
+      spot-order: Spot order
+      futures-order: Futures order
+      ws-api: WebSocket API
+  workflows:
+    heading: REST API calls, WebSocket streams, and WebSocket API commands behave differently
+    summary: They can all touch the same account state, but they connect, fail, and recover in different ways. These diagrams show the workflows handled by the Binance JavaScript SDK and the components handled by you.
+    diagrams:
+      - heading: REST API client routing
+        summary: Choose the client from the Binance product group first, then add credentials, symbols, and start working on features.
+        steps:
+          - label: Choose product group
+            owner: app
+          - label: Instance matching client
+            owner: app
+          - label: Call SDK method
+            owner: app
+          - label: Build and sign request
+            owner: sdk
+          - label: Route request to API
+            owner: sdk
+          - label: Process and respond
+            owner: exchange
+          - label: Parse response JSON
+            owner: sdk
+          - label: Handle result/exception
+            owner: app
+      - heading: User data stream recovery
+        summary: Private streams provide updates on any state changes on your account. After reconnects, use the REST API to verify the state you missed.
+        steps:
+          - label: subscribeUserDataStream()
+            owner: app
+          - label: Authenticate or create listen key
+            owner: sdk
+          - label: on(formattedUserDataMessage)
+            owner: event
+          - label: on(reconnecting)
+            owner: event
+          - label: Pause risky actions
+            owner: app
+          - label: Reconnect and resubscribe
+            owner: sdk
+          - label: Backfill account state over REST API
+            owner: app
+          - label: Resume processing
+            owner: app
+      - heading: WebSocket API command flow
+        summary: Send lower-latency commands through a persistent WebSocket API connection. Maximum benefit with Ed25519 keys.
+        steps:
+          - label: Call and await SDK method
+            owner: app
+          - label: Open WS API connection
+            owner: sdk
+          - label: Authenticate session or sign request
+            owner: sdk
+          - label: Send command with request ID
+            owner: sdk
+          - label: Receive response event
+            owner: event
+          - label: Resolve promise
+            owner: sdk
+          - label: Handle result
+            owner: app
+  production:
+    heading: Before this runs unattended
+    summary: Stress test your integration with a sandbox or testnet environment, and run it alongside the official Binance UI to compare behavior. Thoroughly test different failure scenarios, including network interruptions, expired listen keys, and API errors, before leaving any integration run unattended.
+    items:
+      - Keep Live, Demo, Spot testnet, and Futures testnet credentials separate.
+      - Backfill account state (balances, positions, orders, etc) after private stream reconnects.
+      - "While MainClient covers many of the primary product groups, other product groups have their own dedicated REST API clients, such as: USDMClient, CoinMClient, and PortfolioClient."
+      - "Use the Binance SDK order ID utilities for every Custom Order ID field: prefer generateNewOrderId() for newClientOrderId/clientAlgoId values, and use getOrderIdPrefix() only when building your own random suffix."
+      - Watch timestamp drift, recvWindow behavior, and REST API rate-limit headers before scaling polling.
+      - Prefer Ed25519 keys for latency-sensitive WebSocket API sessions where your account setup supports them.
+  journeys:
+    eyebrow: Find the right section
+    heading: Start with the part of Binance you are integrating
+    actionLabel: Read section
+    cards:
+      - heading: Choose the REST API client
+        summary: Use MainClient for Spot, margin, wallet, and account APIs. Use separate clients for USD-M Futures, COIN-M Futures, and Portfolio Margin.
+        href: "#products-and-clients"
+      - heading: Stream market data
+        summary: Subscribe with WebsocketClient and the [ WS_KEY_MAP ](/reference/glossary#ws-key) entry for the market you are streaming.
+        href: "#websocket-streams"
+      - heading: Handle account events
+        summary: Use WebSocket API user data for Spot, and listen-key managed streams where Binance still requires them.
+        href: "#user-data-streams"
+      - heading: Use WebSocket API commands
+        summary: Use WebsocketAPIClient when you want request/response calls over an already-open WebSocket connection.
+        href: "#websocket-api"
+  article:
+    heading: Use the Binance SDK across REST APIs, WebSockets, and WebSocket API commands
+    summary: "This tutorial focuses on the paths teams usually need first: Spot, Futures, Portfolio Margin, public streams, private user data, WebSocket API commands, environments, reconnects, and rollout checks."
+  related:
+    cards:
+      - heading: Binance SDK page
+        summary: Return to install snippets, direct examples, endpoint maps, and package links.
+        href: /sdk/binance/javascript
+      - heading: WebSocket API example
+        summary: Open a runnable example for request/response commands over Binance WebSocket API.
+        href: /examples/Binance/WebSockets/WS-API/ws-api-client
+      - heading: Source repository
+        summary: Browse SDK source, releases, issues, and endpoint coverage from GitHub.
+        href: https://github.com/tiagosiebler/binance
+-->
 # Binance SDK Quickstart Guide
 
+<!-- siebly:website-omit:start -->
 > [!TIP]
 > This guide can be read in tutorial format on the Siebly Website: [Binance JavaScript REST API & WebSocket Tutorial](https://siebly.io/sdk/binance/javascript/tutorial)
+<!-- siebly:website-omit:end -->
 
 This guide walks through key pieces of a Binance REST API, WebSocket & WebSocket API integration using [`binance`](https://www.npmjs.com/package/binance), the Binance JavaScript and TypeScript SDK by Siebly.io.
 
-The SDK handles request building and connectivity for you, including request signing, WebSocket management, healthchecks, heartbeats, listen-key refreshes, resubscribe behavior, and WebSocket API response mapping so your code can stay focused on the workflow you are automating. This guide will walk you through installation and client selection, then moves through public calls, private auth, REST API calls, streams, user data, and the WebSocket API.
+The SDK handles request building and connectivity for you, including request signing, WebSocket management, healthchecks, heartbeats, product-specific user data startup, listen-key refreshes where Binance still uses them, resubscribe behavior, and WebSocket API response mapping so your code can stay focused on the workflow you are automating. This guide will walk you through installation and client selection, then moves through public calls, private auth, REST API calls, streams, user data, and the WebSocket API.
 
 **Key links**
 
 - Binance JavaScript SDK by Siebly: [`binance`](https://www.npmjs.com/package/binance)
 - GitHub Repository: [`tiagosiebler/binance`](https://github.com/tiagosiebler/binance)
 - SDK function-endpoint map: [Binance JavaScript Endpoint Reference](./endpointFunctionList.md)
-- REST API examples: [Binance SDK REST API examples](../examples/Rest)
-- WebSocket examples: [Binance SDK WebSocket examples](../examples/WebSockets)
+- REST API examples: [Binance SDK REST API examples](../examples/Rest/Spot/rest-spot-public.ts)
+- WebSocket examples: [Binance SDK WebSocket examples](../examples/WebSockets/Public/ws-public.ts)
 - More SDKs: [Siebly.io](https://siebly.io)
 
 ---
 
+<!-- siebly:section id="why-use-the-sdk" -->
 ## Why use the SDK
 
 A stable Binance integration is more than a handful of HTTP requests. Binance splits behavior across product groups, transports, key types, and environments:
@@ -35,6 +242,7 @@ Most of that work is handled for you, while the grouping & naming stays close to
 
 ---
 
+<!-- siebly:section id="install-and-api-keys" -->
 ## Install and API keys
 
 If you do not have Node.js installed yet, install it first. The SDK is published to both [GitHub](https://github.com/tiagosiebler/binance) and [npm](https://www.npmjs.com/package/binance), and can therefore be installed with your favourite Node.js compatible package manager.
@@ -94,6 +302,7 @@ If you are only testing public endpoints, you do not need any keys at all.
 
 ---
 
+<!-- siebly:section id="products-and-clients" -->
 ## Products and clients
 
 Binance is not one single API. The SDK splits API clients around Binance's product groups:
@@ -118,6 +327,7 @@ As a rule of thumb:
 
 For a complete method map, see [docs/endpointFunctionList.md](./endpointFunctionList.md). If any endpoints or properties seem to be missing, please open an issue on GitHub and we'll look into it. Targeted PRs are also welcome.
 
+<!-- siebly:section id="rest-api-streams-listen-keys-and-websocket-api" -->
 ### REST API, streams, listen keys, and WebSocket API
 
 Binance uses several related but different integration patterns. It helps to keep them separate:
@@ -130,7 +340,7 @@ Binance uses several related but different integration patterns. It helps to kee
 | WebSocket API user data      | `WebsocketAPIClient.subscribeUserDataStream(...)`                                                                | Spot user data and some newer private stream flows without the old Spot listen-key workflow                                                       | WebSocket API auth, subscription command, reconnect/resubscribe behavior                            |
 | WebSocket API commands       | `WebsocketAPIClient` methods or `WebsocketClient.sendWSAPIRequest(...)`                                          | Lower-latency request/response commands over an already-open WebSocket, such as order tests, order placement, cancellation, status, account reads | WebSocket connection persistence, auth, request IDs, promise resolution, response/error correlation |
 
-The WebSocket API is not just another stream. It is a request/response API over WebSocket. Since much of the functionality is a better alternative to the REST API, we've introduced the promise-driven `WebsocketAPIClient`. It lets you write code that feels like working with a REST API. Call a function to send a command over WS and await the response, without any of the complexity of managing asynchronous messaging over WebSockets (as well as the life-cycle complexities that come with keeping WebSockets healthy).
+The WebSocket API uses WebSocket transport for request/response commands such as order tests, order placement, cancellation, status, and account reads. Since much of this surface is a lower-latency alternative to REST, we've introduced the promise-driven `WebsocketAPIClient`. It lets you call a function, send a command over WS, and await the matched response without managing asynchronous WebSocket messaging or connection lifecycle details yourself.
 
 ```typescript
 const result = await wsApi.testSpotOrder({
@@ -148,12 +358,14 @@ Use the REST API when you want maximum endpoint coverage, simple one-off calls, 
 
 ---
 
+<!-- siebly:section id="start-building-first-calls" -->
 ## Start building: first calls
 
 If you only want the fastest path to a working integration, start here.
 
 ### 1. First Spot REST API request
 
+<!-- siebly:snippet id="spot-rest" -->
 ```typescript
 import { MainClient } from 'binance';
 
@@ -188,6 +400,7 @@ See also: [Spot public REST API example](../examples/Rest/Spot/rest-spot-public.
 
 ### 2. First public Spot WebSocket stream
 
+<!-- siebly:snippet id="public-websocket" -->
 ```typescript
 import { WebsocketClient, WS_KEY_MAP } from 'binance';
 
@@ -214,6 +427,7 @@ See also: [Spot trades WebSocket example](../examples/WebSockets/Public/ws-publi
 
 For Spot user data streams, prefer the WebSocket API user data flow. It avoids the older Spot listen-key flow and keeps the stream on a managed WebSocket API connection.
 
+<!-- siebly:snippet id="user-data" -->
 ```typescript
 import { WebsocketAPIClient, WS_KEY_MAP } from 'binance';
 
@@ -223,12 +437,16 @@ const wsApi = new WebsocketAPIClient({
   beautify: true,
 });
 
+wsApi.getWSClient().on('message', (data) => {
+  console.log('on message event: ', data.wsKey);
+});
+
 wsApi.getWSClient().on('open', (data) => {
-  console.log('ws api open', data.wsKey);
+  console.log('ws api open: ', data.wsKey);
 });
 
 wsApi.getWSClient().on('formattedUserDataMessage', (data) => {
-  console.log('account event', data);
+  console.log('on formattedUserDataMessage: ', data);
 });
 
 wsApi.getWSClient().on('exception', console.error);
@@ -246,6 +464,7 @@ See also: [Spot user data stream over WebSocket API](<../examples/WebSockets/Pri
 
 ### 4. First Spot order over REST API
 
+<!-- siebly:snippet id="spot-order" -->
 ```typescript
 import { MainClient } from 'binance';
 
@@ -284,6 +503,7 @@ See also: [Spot private trading example](../examples/Rest/Spot/rest-spot-private
 
 For strategy testing, `demoTrading: true` is usually more realistic than testnet because demo trading uses live market data with simulated trading.
 
+<!-- siebly:snippet id="futures-order" -->
 ```typescript
 import { USDMClient } from 'binance';
 
@@ -316,6 +536,7 @@ See also: [USD-M Futures demo trading example](../examples/Rest/Futures/rest-usd
 
 The WebSocket API lets you send requests over a persistent WebSocket connection and await responses, similar to REST API calls. This is useful for lower-latency workflows and for WebSocket API-only features.
 
+<!-- siebly:snippet id="ws-api" -->
 ```typescript
 import { WebsocketAPIClient } from 'binance';
 
@@ -349,6 +570,7 @@ See also: [WebSocket API client example](../examples/WebSockets/WS-API/ws-api-cl
 
 ---
 
+<!-- siebly:section id="spot-margin-and-wallet-rest-api" -->
 ## Spot, Margin, and Wallet REST API
 
 Most Binance integrations start with `MainClient`. It covers Spot trading and many account APIs under Binance's main REST API families.
@@ -621,6 +843,7 @@ Withdrawal calls are intentionally not shown as a quickstart. Use withdrawal per
 
 ---
 
+<!-- siebly:section id="futures-rest-api" -->
 ## Futures REST API
 
 Binance Futures are split into USD-M and COIN-M product groups. Use the dedicated client for the product you are integrating.
@@ -805,6 +1028,7 @@ See also:
 
 ---
 
+<!-- siebly:section id="portfolio-margin-rest-api" -->
 ## Portfolio Margin REST API
 
 Portfolio Margin has its own account model and a dedicated `PortfolioClient`.
@@ -872,9 +1096,10 @@ See also:
 
 ---
 
+<!-- siebly:section id="websocket-streams" -->
 ## WebSocket Streams
 
-Use `WebsocketClient` when you want event-driven updates instead of polling the REST API. It is the shared client for public market streams and the older listen-key style user data streams.
+Use `WebsocketClient` when you want event-driven updates instead of polling the REST API. It is the shared client for public market streams and for the product areas where Binance still uses listen-key style user data streams.
 
 The workflow is simple: create a client, add event handlers, provide API keys if you need private user data, and subscribe to the streams you want. The SDK opens the correct Binance endpoint, applies proxy settings if configured, fetches and refreshes listen keys where required, monitors heartbeats, reconnects stale sockets, and resubscribes cached topics after reconnect.
 
@@ -973,7 +1198,7 @@ ws.subscribe(['btcusdt@aggTrade', 'btcusdt@markPrice', 'btcusdt@kline_1m'], WS_K
 
 See also:
 
-- [USD-M public WebSocket example](../examples/WebSockets/Public/ws-usdm-public.ts)
+- [USD-M public WebSocket example](https://siebly.io/examples/Binance/WebSockets/Public/ws-public)
 - [USD-M funding stream example](../examples/WebSockets/Public/ws-public-usdm-funding.ts)
 
 ### Public COIN-M Futures WebSocket topics
@@ -996,6 +1221,7 @@ COIN-M symbols and stream names are not the same as Spot or USD-M symbols. Treat
 
 ---
 
+<!-- siebly:section id="user-data-streams" -->
 ## User Data Streams
 
 User data streams are how Binance pushes private account events: order updates, execution updates, balance changes, position changes, margin events, and listen-key or subscription expiry events.
@@ -1019,14 +1245,22 @@ const wsApi = new WebsocketAPIClient({
 
 const wsClient = wsApi.getWSClient();
 
-wsClient.on('formattedUserDataMessage', (data) => {
-  console.log('spot account event', data);
+// raw websocket event, unformatted
+wsClient.on('message', (data) => {
+  console.log('on message event: ', data.wsKey);
 });
 
+// formatted websocket event
+wsClient.on('formattedMessage', (data) => {
+  console.log('on formattedMessage: ', data);
+});
+
+// reconnection has started
 wsClient.on('reconnecting', ({ wsKey }) => {
   console.log('spot user data reconnecting', wsKey);
 });
 
+// reconnection has completed
 wsClient.on('reconnected', ({ wsKey }) => {
   console.log('spot user data reconnected', wsKey);
   // Fetch account state, open orders, or recent fills here if needed.
@@ -1037,7 +1271,7 @@ wsClient.on('exception', console.error);
 await wsApi.subscribeUserDataStream(WS_KEY_MAP.mainWSAPI);
 ```
 
-This is the recommended path for Spot user data in this SDK version.
+Binance announced deprecation of the old listenKey workflow for Spot and Margin user data streams on April 7, 2025. From February 20, 2026 at 07:00 UTC, the old Spot `POST /api/v3/userDataStream` path returns `410 Gone`; use the WebSocket API user data stream instead. At the time of writing, Spot and Margin are the affected user data stream families. Futures and Portfolio Margin streams still use their existing listenKey-backed workflows. For the migration timeline and JavaScript fix, see [Binance User Data Stream 410 Gone: Fix Spot listenKey in JavaScript](/blog/binance-user-data-stream-410-gone-listenkey-javascript).
 
 ### Margin user data stream with `WebsocketAPIClient`
 
@@ -1052,16 +1286,25 @@ const wsApi = new WebsocketAPIClient({
 
 const wsClient = wsApi.getWSClient();
 
-wsClient.on('formattedUserDataMessage', (data) => {
-  console.log('margin account event', data);
+// raw websocket event, unformatted
+wsClient.on('message', (data) => {
+  console.log('on message event: ', data.wsKey);
 });
 
+// formatted websocket event
+wsClient.on('formattedMessage', (data) => {
+  console.log('on formattedMessage: ', data);
+});
+
+// reconnection has started
 wsClient.on('reconnecting', ({ wsKey }) => {
-  console.log('margin user data reconnecting', wsKey);
+  console.log('spot user data reconnecting', wsKey);
 });
 
+// reconnection has completed
 wsClient.on('reconnected', ({ wsKey }) => {
-  console.log('margin user data reconnected', wsKey);
+  console.log('spot user data reconnected', wsKey);
+  // Fetch account state, open orders, or recent fills here if needed.
 });
 
 await wsApi.subscribeUserDataStream(WS_KEY_MAP.marginUserData);
@@ -1071,7 +1314,7 @@ For margin, the SDK handles the listen-token workflow used by Binance's margin W
 
 ### Futures user data streams with `WebsocketClient`
 
-For Futures user data streams, the SDK can manage listen keys for you through convenience methods.
+Futures user data streams are conveniently available through `WebsocketClient` in the [Binance JavaScript SDK](/sdk/binance/javascript). Both USD-M and COIN-M Futures user data streams on Binance follow a listenKey mechanic. The SDK automates the life cycle and maintenance of this listenKey for you. Request the subscription and handle incoming events, as shown in the following example:
 
 ```typescript
 import { WebsocketClient } from 'binance';
@@ -1133,13 +1376,13 @@ await ws.subscribePortfolioMarginUserDataStream(WS_KEY_MAP.portfolioMarginUserDa
 
 See also:
 
-- [User data stream overview](<../examples/WebSockets/Private(userdata)/ws-userdata-README.MD>)
+- [User data connection safety example](<https://siebly.io/examples/Binance/WebSockets/Private(userdata)/ws-userdata-connection-safety>)
 - [Listen-key user data example](<../examples/WebSockets/Private(userdata)/ws-userdata-listenkey.ts>)
 - [WebSocket API user data example](<../examples/WebSockets/Private(userdata)/ws-userdata-wsapi.ts>)
-- [User data connection safety example](<../examples/WebSockets/Private(userdata)/ws-userdata-connection-safety.ts>)
 
 ---
 
+<!-- siebly:section id="websocket-api" -->
 ## WebSocket API
 
 Binance's WebSocket API is a request/response API over a persistent WebSocket connection. It is useful when you want lower request overhead than REST API calls, or when a Binance feature is exposed through the WebSocket API flow.
@@ -1243,6 +1486,7 @@ See also:
 
 ---
 
+<!-- siebly:section id="environments-and-special-endpoints" -->
 ## Environments and Special Endpoints
 
 ### Demo trading
@@ -1295,6 +1539,7 @@ Market maker endpoints are for supported futures products. They are not a genera
 
 ---
 
+<!-- siebly:section id="production-notes" -->
 ## Production Notes
 
 Before a Binance integration trades unattended, these are the parts worth making explicit.
@@ -1416,6 +1661,7 @@ See also: [custom parser example](../examples/WebSockets/Misc/ws-custom-parser.t
 
 ---
 
+<!-- siebly:section id="faq" -->
 ## FAQ
 
 **Which REST API client should I use?**
@@ -1441,7 +1687,7 @@ HMAC is the standard API key + secret flow. RSA and Ed25519 use self-generated p
 
 **Should I use listen keys for Spot user data?**
 
-Prefer `WebsocketAPIClient.subscribeUserDataStream(WS_KEY_MAP.mainWSAPI)` for Spot user data in this SDK version. The older Spot listen-key workflow is still present in places for compatibility, but Binance has marked the Spot listen-key workflow as deprecated.
+Use `WebsocketAPIClient.subscribeUserDataStream(WS_KEY_MAP.mainWSAPI)` for Spot user data. Binance retired the older Spot listen-key workflow, so JavaScript apps should not start new Spot user data streams with `POST /api/v3/userDataStream`.
 
 **What happens if a WebSocket connection drops?**
 
@@ -1469,10 +1715,11 @@ No. This guide covers the common first steps and production concerns. For full m
 
 - [Binance JavaScript endpoint reference](./endpointFunctionList.md)
 - [Binance SDK examples](../examples)
-- [TSDoc documentation](https://tsdocs.dev/docs/binance)
+- [Binance SDK source on GitHub](https://github.com/tiagosiebler/binance)
 
 ---
 
+<!-- siebly:section id="next-steps" -->
 ## Next steps
 
 If you want to learn more about integrating with Binance APIs and WebSockets:
