@@ -1426,13 +1426,11 @@ export class WebsocketAPIClient {
         wsKey,
       });
 
-      await this.getWSClient().subscribeUsdFuturesUserDataStream(
+      return this.getWSClient().subscribeUsdFuturesUserDataStream(
         wsKey === WS_KEY_MAP.usdmWSAPI
           ? WS_KEY_MAP.usdm
           : WS_KEY_MAP.usdmTestnet,
       );
-
-      return;
     }
 
     if (
@@ -1444,13 +1442,11 @@ export class WebsocketAPIClient {
         wsKey,
       });
 
-      await this.getWSClient().subscribeCoinFuturesUserDataStream(
+      return this.getWSClient().subscribeCoinFuturesUserDataStream(
         wsKey === WS_KEY_MAP.coinmWSAPI
           ? WS_KEY_MAP.coinm
           : WS_KEY_MAP.coinmTestnet,
       );
-
-      return;
     }
 
     if (keyType === 'Ed25519') {
