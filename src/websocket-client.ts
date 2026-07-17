@@ -1245,7 +1245,7 @@ export class WebsocketClient extends BaseWebsocketClient<
     wsKey: WsKey = 'main',
     forceNewConnection?: boolean,
     miscState?: MiscUserDataConnectionState,
-  ): Promise<WSConnectedResult | void> {
+  ): Promise<WSConnectedResult | undefined> {
     this.logger.trace('subscribeSpotUserDataStream()', {
       wsKey,
       forceNewConnection,
@@ -1698,7 +1698,7 @@ export class WebsocketClient extends BaseWebsocketClient<
       respawnAttempt: context?.respawnAttempt,
     };
 
-    let ws: WSConnectedResult | undefined | void = undefined;
+    let ws: WSConnectedResult | undefined;
 
     try {
       switch (market) {
