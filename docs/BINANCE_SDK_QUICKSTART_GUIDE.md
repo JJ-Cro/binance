@@ -15,7 +15,7 @@ siebly:
     codeStatus: public REST API
     startSectionId: start-building-first-calls
   software:
-    description: Node.js and JavaScript SDK for Binance Spot, Margin, Futures, Portfolio Margin, WebSockets, user data streams, and WebSocket API workflows.
+    description: Node.js and JavaScript SDK for Binance Spot, Margin, Futures, Portfolio Margin, WebSockets, user data streams, WebSocket API workflows, and REST API and WebSocket proxy support.
     topics:
       - Binance Spot REST API
       - Binance Margin REST API
@@ -24,6 +24,7 @@ siebly:
       - Binance WebSockets
       - Binance user data streams
       - Binance WebSocket API
+      - REST API and WebSocket proxies
   machineCatalog:
     label: Binance API JavaScript Tutorial
     topics:
@@ -35,15 +36,16 @@ siebly:
       - public WebSockets
       - private user data streams
       - WebSocket API commands
+      - HTTP and SOCKS proxies
       - production reconnect handling
   sdkPagePromo:
     descriptionBeforePackage: 'A practical JavaScript guide to using '
-    descriptionAfterPackage: ' across Binance Spot, margin, USD-M Futures, COIN-M Futures, Portfolio Margin, public streams, user data, WebSocket API commands, and production rollout checks.'
+    descriptionAfterPackage: ' across Binance Spot, margin, USD-M Futures, COIN-M Futures, Portfolio Margin, public streams, user data, WebSocket API commands, proxies, and production rollout checks.'
     highlights:
       - Product-specific REST API clients
       - Public and user data WebSocket streams
       - WebSocket API request/response commands
-      - Demo, testnet, and resilient networking
+      - Demo, testnet, and proxy examples
     exampleHref: /examples/Binance/WebSockets/WS-API/ws-api-client
     exampleLabel: WebSocket API example
     architectureClientSummary: MainClient, USDMClient, WebsocketAPIClient
@@ -81,12 +83,12 @@ siebly:
         href: https://github.com/tiagosiebler/binance/blob/master/src/websocket-api-client.ts
   coverage:
     heading: Start with the right Binance API client
-    summary: The guide starts with public calls, then moves into private account streams, trading commands, environments, reconnects, and the checks you need before production.
+    summary: The guide starts with public calls, then moves into private account streams, trading commands, environments, proxy configuration, reconnects, and the checks you need before production.
     cards:
       - heading: Client selection
         summary: Map Spot, margin, Futures, Portfolio Margin, streams, and WebSocket API commands to the right SDK client.
-      - heading: Auth and environments
-        summary: Use HMAC, RSA, or Ed25519 keys, and keep live, demo, and testnet credentials separate.
+      - heading: Auth, environments, and networking
+        summary: Use HMAC, RSA, or Ed25519 keys, keep live, demo, and testnet credentials separate, and proxy every network path used by the selected workflow.
       - heading: Streams and user data
         summary: Set up public streams, Spot user data, listen-key flows, reconnect handling, and REST API backfills.
       - heading: Production guardrails
@@ -170,6 +172,7 @@ siebly:
       - "Use the Binance SDK order ID utilities for every Custom Order ID field: prefer generateNewOrderId() for newClientOrderId/clientAlgoId values, and use getOrderIdPrefix() only when building your own random suffix."
       - Watch timestamp drift, recvWindow behavior, and REST API rate-limit headers before scaling polling.
       - Prefer Ed25519 keys for latency-sensitive WebSocket API sessions where your account setup supports them.
+      - Monitor proxy reachability, latency, and egress IP when a proxy is enabled.
   journeys:
     eyebrow: Find the right section
     heading: Start with the part of Binance you are integrating
@@ -189,7 +192,7 @@ siebly:
         href: "#websocket-api"
   article:
     heading: Use the Binance SDK across REST APIs, WebSockets, and WebSocket API commands
-    summary: "This tutorial focuses on the paths teams usually need first: Spot, Futures, Portfolio Margin, public streams, private user data, WebSocket API commands, environments, reconnects, and rollout checks."
+    summary: "This tutorial focuses on the paths teams usually need first: Spot, Futures, Portfolio Margin, public streams, private user data, WebSocket API commands, environments, proxies, reconnects, and rollout checks."
   related:
     cards:
       - heading: Binance SDK page
@@ -209,7 +212,7 @@ siebly:
 > This guide can be read in tutorial format on the Siebly Website: [Binance JavaScript REST API & WebSocket Tutorial](https://siebly.io/sdk/binance/javascript/tutorial)
 <!-- siebly:website-omit:end -->
 
-This guide walks through key pieces of a Binance REST API, WebSocket & WebSocket API integration using [`binance`](https://www.npmjs.com/package/binance), the Binance JavaScript and TypeScript SDK by Siebly.io.
+This guide walks through key pieces of a Binance REST API, WebSocket & WebSocket API integration using [`binance`](https://www.npmjs.com/package/binance), the Binance JavaScript and TypeScript SDK by Siebly.io. It also covers HTTP, HTTPS, and SOCKS proxy configuration for REST API calls, streams, and user-data helpers.
 
 The SDK handles request building and connectivity for you, including request signing, WebSocket management, healthchecks, heartbeats, product-specific user data startup, listen-key refreshes where Binance still uses them, resubscribe behavior, and WebSocket API response mapping so your code can stay focused on the workflow you are automating. This guide will walk you through installation and client selection, then moves through public calls, private auth, REST API calls, streams, user data, and the WebSocket API.
 
@@ -1536,6 +1539,212 @@ const ws = new WebsocketClient({
 ```
 
 Market maker endpoints are for supported futures products. They are not a general Spot endpoint override and are not available on testnet.
+
+---
+
+<!-- siebly:section id="proxies" -->
+## Proxies for REST API and WebSocket
+
+Use a proxy when the process needs a fixed egress IP, must cross an approved corporate network, or has a controlled network failover path. A proxy does not select a Binance product, enable a market-maker endpoint, change account eligibility, or replace the `testnet` and `demoTrading` options.
+
+The broader [Using proxy with Siebly SDKs](https://siebly.io/blog/using-proxy-with-siebly-sdks) article covers the shared constructor pattern. The Binance examples below also cover the extra REST API request used by listen-key and listen-token helpers.
+
+Proxy agents are a Node.js networking feature. Browser applications cannot select a raw socket agent.
+
+### HTTP or HTTPS proxy
+
+Install the agent:
+
+```bash
+npm install binance https-proxy-agent
+```
+
+Set `BINANCE_PROXY_URL` to the full proxy URL, including URL-encoded credentials when required.
+
+This public check sends one Spot REST API call and one Spot stream through the same proxy:
+
+<!-- siebly:snippet id="http-proxy" -->
+
+```typescript
+import { HttpsProxyAgent } from 'https-proxy-agent';
+import { MainClient, WebsocketClient, WS_KEY_MAP } from 'binance';
+
+const proxyUrl = process.env.BINANCE_PROXY_URL;
+
+if (!proxyUrl) {
+  throw new Error('Set BINANCE_PROXY_URL before running this example.');
+}
+
+const proxyAgent = new HttpsProxyAgent(proxyUrl);
+
+const rest = new MainClient(
+  {},
+  {
+    httpsAgent: proxyAgent,
+    proxy: false,
+  },
+);
+
+const ws = new WebsocketClient({
+  wsOptions: {
+    agent: proxyAgent,
+  },
+});
+
+ws.on('open', ({ wsKey }) => {
+  console.log('WebSocket connected through proxy:', wsKey);
+});
+ws.on('formattedMessage', (event) => {
+  console.log('stream update', event);
+});
+ws.on('exception', console.error);
+
+async function main() {
+  const serverTime = await rest.getServerTime();
+  console.log('REST API connected through proxy:', serverTime);
+
+  ws.subscribe(['btcusdt@trade'], WS_KEY_MAP.main);
+}
+
+process.once('SIGINT', () => {
+  ws.closeAll();
+});
+
+main().catch(console.error);
+```
+
+REST API networking options belong in the second constructor argument for `MainClient`, `USDMClient`, `CoinMClient`, and `PortfolioClient`.
+
+- `httpsAgent` sends the HTTPS request through the agent.
+- `proxy: false` prevents Axios from applying another proxy configuration on top of that agent.
+- `wsOptions.agent` controls the WebSocket connection.
+
+Public streams, normal WebSocket API commands, and the current Spot WebSocket API user-data subscription only use the socket path. Those workflows need `wsOptions.agent`, but do not make an auxiliary REST API request.
+
+### Listen-key and listen-token helpers through a proxy
+
+Some user-data helpers use two network paths. The SDK opens the WebSocket through `wsOptions.agent`, then uses REST API calls to create or renew a listen key or token through `requestOptions`.
+
+This example authenticates a USD-M Futures user-data stream without placing an order:
+
+<!-- siebly:snippet id="private-proxy" -->
+
+```typescript
+import { HttpsProxyAgent } from 'https-proxy-agent';
+import { WebsocketClient } from 'binance';
+
+const proxyUrl = process.env.BINANCE_PROXY_URL;
+
+if (!proxyUrl) {
+  throw new Error('Set BINANCE_PROXY_URL before running this example.');
+}
+
+const proxyAgent = new HttpsProxyAgent(proxyUrl);
+
+const ws = new WebsocketClient({
+  api_key: process.env.BINANCE_API_KEY!,
+  api_secret: process.env.BINANCE_API_SECRET!,
+  wsOptions: {
+    agent: proxyAgent,
+  },
+  requestOptions: {
+    httpsAgent: proxyAgent,
+    proxy: false,
+  },
+});
+
+ws.on('open', ({ wsKey }) => {
+  console.log('user-data socket connected:', wsKey);
+});
+ws.on('formattedUserDataMessage', (event) => {
+  console.log('user-data event', event);
+});
+ws.on('exception', console.error);
+
+async function main() {
+  await ws.subscribeUsdFuturesUserDataStream();
+  console.log('USD-M Futures user-data stream is ready');
+}
+
+process.once('SIGINT', () => {
+  ws.closeAll();
+});
+
+main().catch(console.error);
+```
+
+Use both settings for the legacy Spot listen-key helpers, Margin listen-token or listen-key helpers, USD-M and COIN-M user-data helpers, and Portfolio Margin user-data helpers. The same rule applies when `WebsocketAPIClient.subscribeUserDataStream(...)` falls back to one of those helpers.
+
+Ordinary `WebsocketAPIClient` request and order methods send authentication and commands over the socket. They only need `wsOptions.agent`. The preferred Spot WebSocket API user-data subscription also stays on the socket.
+
+### SOCKS5 proxy
+
+Install the SOCKS agent:
+
+```bash
+npm install binance socks-proxy-agent
+```
+
+Use `SocksProxyAgent` in the same REST API and WebSocket positions:
+
+<!-- siebly:snippet id="socks-proxy" -->
+
+```typescript
+import { MainClient, WebsocketClient, WS_KEY_MAP } from 'binance';
+import { SocksProxyAgent } from 'socks-proxy-agent';
+
+const proxyUrl = process.env.BINANCE_SOCKS_PROXY_URL;
+
+if (!proxyUrl) {
+  throw new Error('Set BINANCE_SOCKS_PROXY_URL before running this example.');
+}
+
+const proxyAgent = new SocksProxyAgent(proxyUrl);
+
+const rest = new MainClient(
+  {},
+  {
+    httpsAgent: proxyAgent,
+    proxy: false,
+  },
+);
+
+const ws = new WebsocketClient({
+  wsOptions: {
+    agent: proxyAgent,
+  },
+});
+
+async function main() {
+  const serverTime = await rest.getServerTime();
+  console.log('REST API connected through SOCKS5:', serverTime);
+
+  ws.subscribe(['btcusdt@bookTicker'], WS_KEY_MAP.main);
+}
+
+process.once('SIGINT', () => {
+  ws.closeAll();
+});
+
+main().catch(console.error);
+```
+
+See also:
+
+- [SOCKS WebSocket proxy example](../examples/WebSockets/Misc/ws-proxy-socks.ts)
+- [REST API and WebSocket proxy test configuration](../test/proxy.util.ts)
+
+### Proxy checks
+
+- Keep proxy URLs and credentials in environment variables or a secret manager.
+- URL-encode usernames and passwords when constructing a proxy URL from separate values.
+- Make sure the proxy egress IP matches the Binance API key's IP whitelist.
+- Test a public REST API call and public WebSocket subscription before private authentication.
+- Confirm that every listen-key or listen-token REST API call uses the same intended network path as its socket.
+- Measure request, connection, and reconnect latency through the proxy.
+- Treat repeated HTTP 407 responses, TLS errors, and WebSocket reconnect loops as network failures.
+- Keep the host clock synchronized. Change `recvWindow` only after measuring timestamp failures and proxy latency.
+- The SDK does not rotate proxy endpoints. Handle endpoint selection outside the client when rotation is required.
 
 ---
 
