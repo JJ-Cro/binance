@@ -94,10 +94,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tiagosiebler/binance.git"
+    "url": "git+https://github.com/sieblyio/binance.git"
   },
   "bugs": {
-    "url": "https://github.com/tiagosiebler/binance/issues"
+    "url": "https://github.com/sieblyio/binance/issues"
   },
-  "homepage": "https://github.com/tiagosiebler/binance#readme"
+  "homepage": "https://github.com/sieblyio/binance#readme"
 }
