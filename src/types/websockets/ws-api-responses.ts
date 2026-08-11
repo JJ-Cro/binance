@@ -525,6 +525,7 @@ export interface WSAPIFuturesOrder {
   time?: number;
   activatePrice?: string;
   priceRate?: string;
+  modifyId?: number;
 }
 
 export interface WSAPIFuturesPosition {

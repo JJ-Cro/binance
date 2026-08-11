@@ -656,6 +656,7 @@ export interface WSAPIFuturesOrderModifyRequest {
     | 'QUEUE_20';
   origType?: string;
   positionSide?: 'BOTH' | 'LONG' | 'SHORT';
+  modifyId?: number;
   recvWindow?: number;
   timestamp: number;
 }

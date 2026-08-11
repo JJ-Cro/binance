@@ -381,12 +381,15 @@ export const BEAUTIFIER_EVENT_MAP = {
     gtd: 'goodTillDate',
     os: 'strategyOrderStatus',
     ut: 'orderUpdateTime', // Order update Time
+    er: 'orderExpireReason',
+    M: 'modifyId',
   },
   ALGO_UPDATEEvent: {
     e: 'eventType',
     T: 'transactionTime', // Transaction Time
     E: 'eventTime', // Event Time
     o: 'algoOrder',
+    ao: 'algoOrder',
   },
   algoOrder: {
     caid: 'clientAlgoId',
@@ -410,6 +413,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     R: 'reduceOnly',
     tt: 'triggerTime',
     gtd: 'goodTillDate',
+    ia: 'isActivated',
   },
   ACCOUNT_CONFIG_UPDATEEvent: {
     e: 'eventType',
@@ -467,6 +471,7 @@ export const BEAUTIFIER_EVENT_MAP = {
   },
   updateData: {
     m: 'updateEventType',
+    S: 'symbol',
     P: 'updatedPositions',
     B: 'updatedBalances',
   },

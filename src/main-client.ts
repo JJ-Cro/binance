@@ -463,6 +463,7 @@ import {
   PMProMintBFUSDParams,
   PMProMintBFUSDResponse,
   PMProRedeemBFUSDResponse,
+  PortfolioDeltaModeStatus,
   PortfolioMarginMarginCallLevelDeleteResponse,
   PortfolioMarginMarginCallLevelGetResponse,
   PortfolioMarginMarginCallLevelResponse,
@@ -549,6 +550,8 @@ import {
   SpecialLowLatencyKeyResponse,
   SpotAlgoOrder,
   SpotAmendKeepPriorityResult,
+  SpotAssetTag,
+  SpotAssetTagsParams,
   SpotExecutionRulesParams,
   SpotExecutionRulesResponse,
   SpotOrder,
@@ -637,6 +640,7 @@ import {
   SubscribeDualInvestmentProductResponse,
   SubscribeEthStakingV2Response,
   SubscribeSolStakingResponse,
+  SwitchPortfolioDeltaModeParams,
   SymbolOrderBookTicker,
   SymbolTradeFee,
   SystemStatusResponse,
@@ -1699,6 +1703,10 @@ export class MainClient extends BaseRestClient {
 
   getUserAsset(params: GetAssetParams): Promise<UserAsset[]> {
     return this.postPrivate('sapi/v3/asset/getUserAsset', params);
+  }
+
+  getSpotAssetTags(params?: SpotAssetTagsParams): Promise<SpotAssetTag[]> {
+    return this.get('sapi/v1/spot/asset/tags', params);
   }
 
   submitUniversalTransfer(
@@ -4086,6 +4094,16 @@ export class MainClient extends BaseRestClient {
 
   getPortfolioMarginProAccountInfo(): Promise<GetPortfolioMarginProAccountInfoResponse> {
     return this.getPrivate('sapi/v1/portfolio/account');
+  }
+
+  getPortfolioDeltaMode(): Promise<PortfolioDeltaModeStatus> {
+    return this.getPrivate('sapi/v1/portfolio/delta-mode');
+  }
+
+  switchPortfolioDeltaMode(
+    params: SwitchPortfolioDeltaModeParams,
+  ): Promise<{ msg: string }> {
+    return this.postPrivate('sapi/v1/portfolio/delta-mode', params);
   }
 
   setPortfolioMarginMarginCallLevel(

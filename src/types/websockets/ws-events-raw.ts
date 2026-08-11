@@ -350,6 +350,7 @@ export interface WsMessageFuturesUserDataAccountUpdateRaw extends WsSharedBase {
   T: number;
   a: {
     m: AccountUpdateEventType;
+    S?: string; // symbol; only when m is FUNDING_FEE
     B: WsMessageFuturesAccountUpdateBalanceRaw[];
     P: WsMessageFuturesAccountUpdatePositionRaw[];
   };
@@ -410,6 +411,7 @@ export interface WsMessageFuturesUserDataOrderTradeUpdateEventRaw
     pm: string;
     gtd: number;
     er?: string; // Order expire reason (available effective 2025-10-23)
+    M?: string; // modifyId from modify request; only when x is AMENDMENT
   };
 }
 
@@ -439,6 +441,7 @@ export interface WsMessageFuturesUserDataAlgoUpdateRaw extends WsSharedBase {
     R: boolean;
     tt: number;
     gtd: number;
+    ia?: boolean; // whether trailing stop algo has activated; placeholder, always false for now
   };
 }
 

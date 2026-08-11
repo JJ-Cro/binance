@@ -2195,6 +2195,17 @@ export interface UserAsset {
   btcValuation: string;
 }
 
+export interface SpotAssetTagsParams {
+  tag?: string;
+}
+
+export interface SpotAssetTag {
+  assetCode: string;
+  assetName: string;
+  trading: boolean;
+  tags: string[];
+}
+
 export interface ConvertTransfer {
   clientTranId: string;
   asset: string;
@@ -4695,6 +4706,14 @@ export interface GetPortfolioMarginProAccountInfoResponse {
   accountMaintMargin: string;
   accountStatus: string;
   accountType: string;
+}
+
+export interface PortfolioDeltaModeStatus {
+  deltaEnabled: boolean;
+}
+
+export interface SwitchPortfolioDeltaModeParams {
+  deltaEnabled: 'true' | 'false';
 }
 
 export interface GetPortfolioMarginProCollateralRateResponse {

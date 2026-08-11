@@ -369,6 +369,7 @@ export interface WsMessageFuturesUserDataAccountUpdateFormatted
   transactionTime: number;
   updateData: {
     updateEventType: AccountUpdateEventType;
+    symbol?: string; // only when updateEventType is FUNDING_FEE
     updatedBalances: WsAccountUpdatedBalance[];
     updatedPositions: WsUpdatedPosition[];
   };
@@ -440,6 +441,7 @@ export interface WsMessageFuturesUserDataTradeUpdateEventFormatted
     trailingStopActivationPrice?: number;
     trailingStopCallbackRate?: number;
     orderExpireReason?: string; // Order expire reason
+    modifyId?: string; // from modify request; only when executionType is AMENDMENT
     pP?: boolean; // ignore
     si?: number; // ignore
     ss?: number; // ignore
@@ -586,6 +588,7 @@ export interface WsMessageFuturesUserDataAlgoUpdateFormatted
     reduceOnly: boolean;
     triggerTime: number;
     goodTillDate: number;
+    isActivated?: boolean; // trailing stop activation; placeholder, always false for now
   };
 }
 
