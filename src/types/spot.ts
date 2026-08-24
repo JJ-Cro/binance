@@ -464,6 +464,9 @@ export interface ExchangeInfoParams {
   symbolStatus?: string;
 }
 
+type SpotPegPriceType = 'PRIMARY_PEG' | 'MARKET_PEG';
+type SpotPegOffsetType = 'PRICE_LEVEL';
+
 export interface NewSpotOrderParams<
   T extends OrderType = OrderType,
   RT extends OrderResponseType | undefined = OrderResponseType,
@@ -482,6 +485,10 @@ export interface NewSpotOrderParams<
   trailingDelta?: number;
   icebergQty?: number;
   newOrderRespType?: RT;
+  selfTradePreventionMode?: SelfTradePreventionMode;
+  pegPriceType?: SpotPegPriceType;
+  pegOffsetValue?: number;
+  pegOffsetType?: SpotPegOffsetType;
   isIsolated?: StringBoolean;
   sideEffectType?: SideEffects;
   autoRepayAtCancel?: StringBoolean;
@@ -771,7 +778,23 @@ export interface OrderResponseACK {
   transactTime: number;
 }
 
-export interface OrderResponseResult {
+/** Conditional fields on POST /api/v3/order RESULT/FULL. Only present when the matching condition is met. */
+export interface SpotNewOrderConditionalFields {
+  icebergQty?: numberInString;
+  preventedMatchId?: number;
+  preventedQuantity?: numberInString;
+  stopPrice?: numberInString;
+  strategyId?: number;
+  strategyType?: number;
+  trailingDelta?: number;
+  trailingTime?: number;
+  pegPriceType?: SpotPegPriceType;
+  pegOffsetType?: SpotPegOffsetType;
+  pegOffsetValue?: number;
+  peggedPrice?: numberInString;
+}
+
+export interface OrderResponseResult extends SpotNewOrderConditionalFields {
   symbol: string;
   orderId: number;
   orderListId: number;
@@ -780,6 +803,7 @@ export interface OrderResponseResult {
   price: numberInString;
   origQty: numberInString;
   executedQty: numberInString;
+  origQuoteOrderQty: numberInString;
   cummulativeQuoteQty: numberInString;
   status: OrderStatus;
   timeInForce: OrderTimeInForce;
@@ -796,9 +820,10 @@ export interface OrderFill {
   qty: numberInString;
   commission: numberInString;
   commissionAsset: string;
+  tradeId: number;
 }
 
-export interface OrderResponseFull {
+export interface OrderResponseFull extends SpotNewOrderConditionalFields {
   symbol: string;
   orderId: number;
   orderListId?: number;
@@ -807,6 +832,7 @@ export interface OrderResponseFull {
   price: numberInString;
   origQty: numberInString;
   executedQty: numberInString;
+  origQuoteOrderQty: numberInString;
   cummulativeQuoteQty: numberInString;
   status: OrderStatus;
   timeInForce: OrderTimeInForce;

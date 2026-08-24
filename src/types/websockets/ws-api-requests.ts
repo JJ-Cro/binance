@@ -215,6 +215,8 @@ export interface WSAPIMyAllocationsRequest {
 /**
  * Trading request types
  */
+type SpotPegPriceType = 'PRIMARY_PEG' | 'MARKET_PEG';
+type SpotPegOffsetType = 'PRICE_LEVEL';
 
 export interface WSAPINewSpotOrderRequest {
   symbol: string;
@@ -231,7 +233,10 @@ export interface WSAPINewSpotOrderRequest {
   icebergQty?: numberInString;
   strategyId?: number;
   strategyType?: number;
-  selfTradePreventionMode?: string;
+  selfTradePreventionMode?: SelfTradePreventionMode;
+  pegPriceType?: SpotPegPriceType;
+  pegOffsetValue?: number;
+  pegOffsetType?: SpotPegOffsetType;
 }
 
 export interface WSAPIOrderTestRequest {
@@ -248,7 +253,10 @@ export interface WSAPIOrderTestRequest {
   icebergQty?: numberInString;
   strategyId?: number;
   strategyType?: number;
-  selfTradePreventionMode?: string;
+  selfTradePreventionMode?: SelfTradePreventionMode;
+  pegPriceType?: SpotPegPriceType;
+  pegOffsetValue?: number;
+  pegOffsetType?: SpotPegOffsetType;
   computeCommissionRates?: boolean;
   timestamp: number;
   recvWindow?: number;
@@ -291,7 +299,10 @@ export interface WSAPIOrderCancelReplaceRequest {
   icebergQty?: numberInString;
   strategyId?: number;
   strategyType?: number;
-  selfTradePreventionMode?: string;
+  selfTradePreventionMode?: SelfTradePreventionMode;
+  pegPriceType?: SpotPegPriceType;
+  pegOffsetValue?: number;
+  pegOffsetType?: SpotPegOffsetType;
   cancelRestrictions?: 'ONLY_NEW' | 'ONLY_PARTIALLY_FILLED';
   orderRateLimitExceededMode?: 'DO_NOTHING' | 'CANCEL_ONLY';
   recvWindow?: number;

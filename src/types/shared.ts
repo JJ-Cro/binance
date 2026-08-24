@@ -31,7 +31,8 @@ export type OrderTimeInForce =
   | 'FOK'
   | 'GTX'
   | 'GTE_GTC'
-  | 'GTD';
+  | 'GTD'
+  | 'RPI';
 
 export type StringBoolean = 'TRUE' | 'FALSE';
 
@@ -67,12 +68,14 @@ export type OrderSide = 'BUY' | 'SELL';
 
 export type OrderStatus =
   | 'NEW'
+  | 'PENDING_NEW'
   | 'PARTIALLY_FILLED'
   | 'FILLED'
   | 'CANCELED'
   | 'PENDING_CANCEL'
   | 'REJECTED'
-  | 'EXPIRED';
+  | 'EXPIRED'
+  | 'EXPIRED_IN_MATCH';
 
 export type OrderExecutionType =
   | 'NEW'
@@ -107,7 +110,9 @@ export type SelfTradePreventionMode =
   | 'EXPIRE_TAKER'
   | 'EXPIRE_MAKER'
   | 'EXPIRE_BOTH'
-  | 'NONE';
+  | 'NONE'
+  | 'DECREMENT'
+  | 'TRANSFER';
 
 export interface BasicAssetParam {
   asset: string;
