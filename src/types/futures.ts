@@ -447,6 +447,7 @@ export interface NewOrderResult {
   priceProtect: boolean;
   selfTradePreventionMode: SelfTradePreventionMode;
   priceMatch: PriceMatchMode;
+  goodTillDate?: number;
 }
 
 export interface NewOrderError {

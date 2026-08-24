@@ -12,7 +12,7 @@ import {
   OrderTimeInForce,
   SelfTradePreventionMode,
 } from '../shared';
-import { OrderResponse } from '../spot';
+import { OrderResponse, SpotNewOrderConditionalFields } from '../spot';
 
 /**
  * Error response type
@@ -686,7 +686,9 @@ export interface WSAPISpotOrderACK {
   transactTime: number;
 }
 
-export interface WSAPISpotOrderRESULT extends WSAPISpotOrderACK {
+export interface WSAPISpotOrderRESULT
+  extends WSAPISpotOrderACK,
+    SpotNewOrderConditionalFields {
   price: numberInString;
   origQty: numberInString;
   executedQty: numberInString;
