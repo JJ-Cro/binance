@@ -65,22 +65,22 @@ siebly:
     packageNodes:
       - label: MainClient
         summary: Spot, margin, wallet, earn, sub-accounts
-        href: https://github.com/tiagosiebler/binance/blob/master/src/main-client.ts
+        href: https://github.com/sieblyio/binance/blob/master/src/main-client.ts
       - label: USDMClient
         summary: USD-M Futures REST API
-        href: https://github.com/tiagosiebler/binance/blob/master/src/usdm-client.ts
+        href: https://github.com/sieblyio/binance/blob/master/src/usdm-client.ts
       - label: CoinMClient
         summary: COIN-M Futures REST API
-        href: https://github.com/tiagosiebler/binance/blob/master/src/coinm-client.ts
+        href: https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts
       - label: PortfolioClient
         summary: Portfolio Margin REST API
-        href: https://github.com/tiagosiebler/binance/blob/master/src/portfolio-client.ts
+        href: https://github.com/sieblyio/binance/blob/master/src/portfolio-client.ts
       - label: WebsocketClient
         summary: Public streams and listen-key user data
-        href: https://github.com/tiagosiebler/binance/blob/master/src/websocket-client.ts
+        href: https://github.com/sieblyio/binance/blob/master/src/websocket-client.ts
       - label: WebsocketAPIClient
         summary: Awaitable WebSocket API commands
-        href: https://github.com/tiagosiebler/binance/blob/master/src/websocket-api-client.ts
+        href: https://github.com/sieblyio/binance/blob/master/src/websocket-api-client.ts
   coverage:
     heading: Start with the right Binance API client
     summary: The guide starts with public calls, then moves into private account streams, trading commands, environments, proxy configuration, reconnects, and the checks you need before production.
@@ -203,7 +203,7 @@ siebly:
         href: /examples/Binance/WebSockets/WS-API/ws-api-client
       - heading: Source repository
         summary: Browse SDK source, releases, issues, and endpoint coverage from GitHub.
-        href: https://github.com/tiagosiebler/binance
+        href: https://github.com/sieblyio/binance
 -->
 # Binance SDK Quickstart Guide
 
@@ -219,7 +219,7 @@ The SDK handles request building and connectivity for you, including request sig
 **Key links**
 
 - Binance JavaScript SDK by Siebly: [`binance`](https://www.npmjs.com/package/binance)
-- GitHub Repository: [`tiagosiebler/binance`](https://github.com/tiagosiebler/binance)
+- GitHub Repository: [`sieblyio/binance`](https://github.com/sieblyio/binance)
 - SDK function-endpoint map: [Binance JavaScript Endpoint Reference](./endpointFunctionList.md)
 - REST API examples: [Binance SDK REST API examples](../examples/Rest/Spot/rest-spot-public.ts)
 - WebSocket examples: [Binance SDK WebSocket examples](../examples/WebSockets/Public/ws-public.ts)
@@ -248,7 +248,7 @@ Most of that work is handled for you, while the grouping & naming stays close to
 <!-- siebly:section id="install-and-api-keys" -->
 ## Install and API keys
 
-If you do not have Node.js installed yet, install it first. The SDK is published to both [GitHub](https://github.com/tiagosiebler/binance) and [npm](https://www.npmjs.com/package/binance), and can therefore be installed with your favourite Node.js compatible package manager.
+If you do not have Node.js installed yet, install it first. The SDK is published to both [GitHub](https://github.com/sieblyio/binance) and [npm](https://www.npmjs.com/package/binance), and can therefore be installed with your favourite Node.js compatible package manager.
 
 Install the SDK with npm:
 
@@ -1317,7 +1317,7 @@ For margin, the SDK handles the listen-token workflow used by Binance's margin W
 
 ### Futures user data streams with `WebsocketClient`
 
-Futures user data streams are conveniently available through `WebsocketClient` in the [Binance JavaScript SDK](/sdk/binance/javascript). Both USD-M and COIN-M Futures user data streams on Binance follow a listenKey mechanic. The SDK automates the life cycle and maintenance of this listenKey for you. Request the subscription and handle incoming events, as shown in the following example:
+Futures user data streams are conveniently available through `WebsocketClient` in the [Binance JavaScript SDK](https://siebly.io/sdk/binance/javascript). Both USD-M and COIN-M Futures user data streams on Binance follow a listenKey mechanic. The SDK automates the life cycle and maintenance of this listenKey for you. Request the subscription and handle incoming events, as shown in the following example:
 
 ```typescript
 import { WebsocketClient } from 'binance';
@@ -1924,7 +1924,7 @@ No. This guide covers the common first steps and production concerns. For full m
 
 - [Binance JavaScript endpoint reference](./endpointFunctionList.md)
 - [Binance SDK examples](../examples)
-- [Binance SDK source on GitHub](https://github.com/tiagosiebler/binance)
+- [Binance SDK source on GitHub](https://github.com/sieblyio/binance)
 
 ---
 
@@ -1936,6 +1936,6 @@ If you want to learn more about integrating with Binance APIs and WebSockets:
 - Explore the [Binance JavaScript examples on GitHub](../examples)
 - Review the full endpoint list: [Binance JavaScript endpoint reference](./endpointFunctionList.md)
 - Check the Binance JavaScript SDK on npm: [`binance`](https://www.npmjs.com/package/binance)
-- Browse the source code of the Binance JavaScript SDK on GitHub: [`tiagosiebler/binance`](https://github.com/tiagosiebler/binance)
+- Browse the source code of the Binance JavaScript SDK on GitHub: [`sieblyio/binance`](https://github.com/sieblyio/binance)
 - Review auth examples: [Ed25519](../examples/auth/rest-private-ed25519.md) and [RSA](../examples/auth/rest-private-rsa.md)
 - Explore the wider SDK ecosystem: [Siebly.io](https://siebly.io)

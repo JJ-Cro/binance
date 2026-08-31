@@ -21,9 +21,6 @@
 
 [1]: https://www.npmjs.com/package/binance
 
-> [!TIP]
-> Upcoming change: As part of the [Siebly.io](https://siebly.io/) brand, this SDK is now hosted under our [Siebly.io GitHub organisation](https://github.com/sieblyio). The migration is seamless and requires no user changes.
-
 Updated & performant JavaScript & Node.js SDK for the Binance REST APIs and WebSockets:
 
 - Professional, robust & performant Binance SDK with leading trading volume in production (livenet).
@@ -602,7 +599,7 @@ const wsClient = new WebsocketAPIClient({
 });
 
 // Optional, if you see RECV Window errors, you can use this to manage time issues. However, make sure you sync your system clock first!
-// https://github.com/tiagosiebler/awesome-crypto-examples/wiki/Timestamp-for-this-request-is-outside-of-the-recvWindow
+// https://github.com/sieblyio/awesome-crypto-examples/wiki/Timestamp-for-this-request-is-outside-of-the-recvWindow
 // wsClient.setTimeOffsetMs(-5000);
 
 // Optional, see above. Can be used to prepare a connection before sending commands
