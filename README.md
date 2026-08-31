@@ -21,6 +21,9 @@
 
 [1]: https://www.npmjs.com/package/binance
 
+> [!TIP]
+> Upcoming change: As part of the [Siebly.io](https://siebly.io/) brand, this SDK is now hosted under our [Siebly.io GitHub organisation](https://github.com/sieblyio). The migration is seamless and requires no user changes.
+
 Updated & performant JavaScript & Node.js SDK for the Binance REST APIs and WebSockets:
 
 - Professional, robust & performant Binance SDK with leading trading volume in production (livenet).
