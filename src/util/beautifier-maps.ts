@@ -577,6 +577,16 @@ export const BEAUTIFIER_EVENT_MAP = {
     m: 'maker',
     M: 'ignored',
   },
+  blockTradeEvent: {
+    e: 'eventType',
+    E: 'eventTime',
+    s: 'symbol',
+    t: 'tradeId',
+    p: 'price',
+    q: 'quantity',
+    T: 'time',
+    m: 'maker',
+  },
   tradeOptionsEvent: {
     e: 'eventType',
     E: 'eventTime',

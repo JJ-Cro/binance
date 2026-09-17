@@ -77,6 +77,23 @@ export interface FuturesCoinMBasisParams {
   endTime?: number;
 }
 
+export interface FuturesCoinMLongShortAccountRatioParams {
+  pair: string;
+  contractType?: 'PERPETUAL' | 'CURRENT_QUARTER' | 'NEXT_QUARTER';
+  period: '5m' | '15m' | '30m' | '1h' | '2h' | '4h' | '6h' | '12h' | '1d';
+  limit?: number;
+  startTime?: number;
+  endTime?: number;
+}
+
+export interface GetFuturesAllOrdersParams {
+  symbol?: string;
+  orderId?: number;
+  startTime?: number;
+  endTime?: number;
+  limit?: number;
+}
+
 export enum EnumDualSideMode {
   HedgeMode = 'true',
   OneWayMode = 'false',
@@ -149,6 +166,7 @@ export interface ModifyFuturesOrderParams<numberType = number> {
   price?: numberType;
   priceMatch?: PriceMatchMode;
   modifyId?: number;
+  reduceOnly?: BooleanString;
 }
 
 export enum EnumPositionMarginChangeType {
@@ -163,6 +181,7 @@ export type IncomeType =
   | 'WELCOME_BONUS'
   | 'REALIZED_PNL'
   | 'FUNDING_FEE'
+  | 'SPECIAL_FUNDING_FEE'
   | 'COMMISSION'
   | 'INSURANCE_CLEAR';
 
@@ -424,10 +443,10 @@ export interface MultiAssetModeResponse {
 export interface NewOrderResult {
   clientOrderId: string;
   cumQty: numberInString;
-  cumQuote: numberInString;
+  cumQuote?: numberInString;
   executedQty: numberInString;
   orderId: number;
-  avgPrice: numberInString;
+  avgPrice?: numberInString;
   origQty: numberInString;
   price: numberInString;
   reduceOnly: boolean;
@@ -913,6 +932,7 @@ export interface ModifyOrderParams {
     | 'QUEUE_10'
     | 'QUEUE_20';
   modifyId?: number;
+  reduceOnly?: BooleanString;
   recvWindow?: number;
   timestamp: number;
 }
@@ -1130,6 +1150,7 @@ export interface TradingSchedule {
     COMMODITY?: MarketSchedule;
     KR_EQUITY?: MarketSchedule;
     HK_EQUITY?: MarketSchedule;
+    CN_EQUITY?: MarketSchedule;
   };
 }
 

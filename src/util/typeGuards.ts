@@ -2,6 +2,7 @@ import {
   WsFormattedMessage,
   WsMessage24hrTickerFormatted,
   WsMessageAggTradeFormatted,
+  WsMessageBlockTradeFormatted,
   WsMessageDiffBookDepthEventFormatted,
   WsMessageForceOrderFormatted,
   WsMessageFuturesUserDataAccountConfigUpdateEventFormatted,
@@ -137,6 +138,12 @@ export function isWsFormattedTrade(
   data: WsFormattedMessage,
 ): data is WsMessageTradeFormatted {
   return !Array.isArray(data) && data.eventType === 'trade';
+}
+
+export function isWsFormattedBlockTrade(
+  data: WsFormattedMessage,
+): data is WsMessageBlockTradeFormatted {
+  return !Array.isArray(data) && data.eventType === 'blockTrade';
 }
 
 export function isWsFormattedKline(

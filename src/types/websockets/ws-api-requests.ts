@@ -668,6 +668,7 @@ export interface WSAPIFuturesOrderModifyRequest {
   origType?: string;
   positionSide?: 'BOTH' | 'LONG' | 'SHORT';
   modifyId?: number;
+  reduceOnly?: BooleanString;
   recvWindow?: number;
   timestamp: number;
 }

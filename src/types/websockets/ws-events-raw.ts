@@ -75,6 +75,17 @@ export interface WsMessageTradeRaw extends WsSharedBase {
   M: boolean;
 }
 
+export interface WsMessageBlockTradeRaw extends WsSharedBase {
+  e: 'blockTrade';
+  E: number;
+  s: string;
+  t: number;
+  p: numberInString;
+  q: numberInString;
+  T: number;
+  m: boolean;
+}
+
 export interface WsMessage24hrMiniTickerRaw extends WsSharedBase {
   e: '24hrMiniTicker';
   E: number;
@@ -442,6 +453,7 @@ export interface WsMessageFuturesUserDataAlgoUpdateRaw extends WsSharedBase {
     tt: number;
     gtd: number;
     ia?: boolean; // whether trailing stop algo has activated; placeholder, always false for now
+    // As of 2026-08-21 this is fully active for trailing stop orders (false then true while status stays NEW).
   };
 }
 
@@ -599,6 +611,7 @@ export type WsRawMessage =
   | WsMessageKlineRaw
   | WsMessageAggTradeRaw
   | WsMessageTradeRaw
+  | WsMessageBlockTradeRaw
   | WsMessage24hrMiniTickerRaw
   | WsMessage24hrMiniTickerRaw[]
   | WsMessage24hrTickerRaw

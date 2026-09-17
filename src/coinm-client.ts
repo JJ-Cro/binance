@@ -29,6 +29,7 @@ import {
   FuturesCoinMAccountBalance,
   FuturesCoinMAccountInformation,
   FuturesCoinMBasisParams,
+  FuturesCoinMLongShortAccountRatioParams,
   FuturesCoinMTakerBuySellVolumeParams,
   FuturesDataPaginatedParams,
   FuturesExchangeInfo,
@@ -223,7 +224,7 @@ export class CoinMClient extends BaseRestClient {
   }
 
   getTopTradersLongShortAccountRatio(
-    params: FuturesDataPaginatedParams,
+    params: FuturesCoinMLongShortAccountRatioParams,
   ): Promise<any> {
     return this.get('futures/data/topLongShortAccountRatio', params);
   }
