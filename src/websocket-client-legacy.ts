@@ -1217,18 +1217,16 @@ export class WebsocketClientV1 extends EventEmitter {
 
   /**
    * Subscribe to coin index for a symbol in COINM Futures markets
+   * `_updateSpeedMs` is ignored (`<pair>@indexPrice@1s` was removed). Drop this arg in the next major.
    */
   public subscribeCoinIndexPrice(
     symbol: string,
-    updateSpeedMs: 1000 | 3000 = 3000,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _updateSpeedMs: 1000 | 3000 = 3000,
     forceNewConnection?: boolean,
   ): WebSocket {
     const lowerCaseSymbol = symbol.toLowerCase();
     const streamName = 'indexPrice';
-    // const speedSuffix = updateSpeedMs === 1000 ? '@1s' : '';
-    // <pair>@indexPrice@1s was removed 2026-06-30; stream is <pair>@indexPrice at 1000ms.
-    const speedSuffix = '';
-    void updateSpeedMs;
     const market: WsMarket = 'coinm';
     const wsKey = getLegacyWsStoreKeyWithContext(
       market,
@@ -1236,8 +1234,7 @@ export class WebsocketClientV1 extends EventEmitter {
       lowerCaseSymbol,
     );
     return this.connectToWsUrl(
-      this.getWsBaseUrl(market, wsKey) +
-        `/ws/${lowerCaseSymbol}@${streamName}${speedSuffix}`,
+      this.getWsBaseUrl(market, wsKey) + `/ws/${lowerCaseSymbol}@${streamName}`,
       wsKey,
       forceNewConnection,
     );
