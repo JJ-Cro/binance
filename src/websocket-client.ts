@@ -1983,23 +1983,36 @@ export class WebsocketClient extends BaseWebsocketClient<
   }
 
   /**
+   * Subscribe to block trades for a symbol in spot markets.
+   */
+  public subscribeBlockTrades(
+    symbol: string,
+    wsKeyOverride?: WsKey,
+  ): Promise<unknown> {
+    const lowerCaseSymbol = symbol.toLowerCase();
+    const streamName = 'blockTrade';
+    const market: WsMarket = 'spot';
+
+    const wsKey = wsKeyOverride || getWsKeyForProductGroup(market, streamName);
+    return this.subscribe(`${lowerCaseSymbol}@${streamName}`, wsKey);
+  }
+
+  /**
    * Subscribe to coin index for a symbol in COINM Futures markets
+   * `_updateSpeedMs` is ignored (`<pair>@indexPrice@1s` was removed). Drop this arg in the next major.
    */
   public subscribeCoinIndexPrice(
     symbol: string,
-    updateSpeedMs: 1000 | 3000 = 3000,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _updateSpeedMs: 1000 | 3000 = 3000,
     wsKeyOverride?: WsKey,
   ): Promise<unknown> {
     const lowerCaseSymbol = symbol.toLowerCase();
     const streamName = 'indexPrice';
-    const speedSuffix = updateSpeedMs === 1000 ? '@1s' : '';
     const market: WsMarket = 'coinm';
 
     const wsKey = wsKeyOverride || getWsKeyForProductGroup(market, streamName);
-    return this.subscribe(
-      `${lowerCaseSymbol}@${streamName}${speedSuffix}`,
-      wsKey,
-    );
+    return this.subscribe(`${lowerCaseSymbol}@${streamName}`, wsKey);
   }
 
   /**
@@ -2391,6 +2404,16 @@ export class WebsocketClient extends BaseWebsocketClient<
     wsKeyOverride?: WsKey,
   ): Promise<unknown> {
     return this.subscribeTrades(symbol, 'spot', wsKeyOverride);
+  }
+
+  /**
+   * Subscribe to block trades for a symbol in spot markets.
+   */
+  public subscribeSpotBlockTrades(
+    symbol: string,
+    wsKeyOverride?: WsKey,
+  ): Promise<unknown> {
+    return this.subscribeBlockTrades(symbol, wsKeyOverride);
   }
 
   /**

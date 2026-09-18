@@ -40,6 +40,7 @@ import {
   FuturesTradeHistoryDownloadId,
   FuturesTransactionDownloadLink,
   GetForceOrdersParams,
+  GetFuturesAllOrdersParams,
   GetFuturesOrderModifyHistoryParams,
   GetIncomeHistoryParams,
   GetPositionMarginChangeHistoryParams,
@@ -88,7 +89,6 @@ import {
   CancelOCOParams,
   CancelOrderParams,
   GenericCodeMsgError,
-  GetAllOrdersParams,
   GetOrderParams,
   HistoricalTradesParams,
   Kline,
@@ -437,7 +437,7 @@ export class USDMClient extends BaseRestClient {
     return this.getPrivate('fapi/v1/order', params);
   }
 
-  getAllOrders(params: GetAllOrdersParams): Promise<OrderResult[]> {
+  getAllOrders(params?: GetFuturesAllOrdersParams): Promise<OrderResult[]> {
     return this.getPrivate('fapi/v1/allOrders', params);
   }
 

@@ -694,82 +694,82 @@ This table includes all endpoints from the official Exchange API docs and corres
 
 | Function | AUTH | HTTP Method | Endpoint |
 | -------- | :------: | :------: | -------- |
-| [testConnectivity()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L127) |  | GET | `dapi/v1/ping` |
-| [getExchangeInfo()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L131) |  | GET | `dapi/v1/exchangeInfo` |
-| [getOrderBook()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L135) |  | GET | `dapi/v1/depth` |
-| [getRecentTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L139) |  | GET | `dapi/v1/trades` |
-| [getHistoricalTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L143) |  | GET | `dapi/v1/historicalTrades` |
-| [getAggregateTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L149) |  | GET | `dapi/v1/aggTrades` |
-| [getMarkPrice()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L158) |  | GET | `dapi/v1/premiumIndex` |
-| [getFundingRateHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L162) |  | GET | `dapi/v1/fundingRate` |
-| [getFundingRate()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L168) |  | GET | `dapi/v1/fundingInfo` |
-| [getKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L172) |  | GET | `dapi/v1/klines` |
-| [getContinuousContractKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L176) |  | GET | `dapi/v1/continuousKlines` |
-| [getIndexPriceKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L182) |  | GET | `dapi/v1/indexPriceKlines` |
-| [getMarkPriceKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L186) |  | GET | `dapi/v1/markPriceKlines` |
-| [getPremiumIndexKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L190) |  | GET | `dapi/v1/premiumIndexKlines` |
-| [get24hrChangeStatistics()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L194) |  | GET | `dapi/v1/ticker/24hr` |
-| [getSymbolPriceTicker()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L201) |  | GET | `dapi/v1/ticker/price` |
-| [getSymbolOrderBookTicker()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L208) |  | GET | `dapi/v1/ticker/bookTicker` |
-| [getOpenInterest()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L217) |  | GET | `dapi/v1/openInterest` |
-| [getOpenInterestStatistics()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L221) |  | GET | `futures/data/openInterestHist` |
-| [getTopTradersLongShortAccountRatio()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L225) |  | GET | `futures/data/topLongShortAccountRatio` |
-| [getTopTradersLongShortPositionRatio()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L231) |  | GET | `futures/data/topLongShortPositionRatio` |
-| [getGlobalLongShortAccountRatio()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L237) |  | GET | `futures/data/globalLongShortAccountRatio` |
-| [getTakerBuySellVolume()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L243) |  | GET | `futures/data/takerBuySellVol` |
-| [getCompositeSymbolIndex()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L249) |  | GET | `futures/data/basis` |
-| [getIndexPriceConstituents()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L257) |  | GET | `dapi/v1/constituents` |
-| [getQuarterlyContractSettlementPrices()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L267) |  | GET | `futures/data/delivery-price` |
-| [submitNewOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L279) | :closed_lock_with_key:  | POST | `dapi/v1/order` |
-| [submitMultipleOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L289) | :closed_lock_with_key:  | POST | `dapi/v1/batchOrders` |
-| [modifyOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L306) | :closed_lock_with_key:  | PUT | `dapi/v1/order` |
-| [modifyMultipleOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L315) | :closed_lock_with_key:  | PUT | `dapi/v1/batchOrders` |
-| [getOrderModifyHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L328) | :closed_lock_with_key:  | GET | `dapi/v1/orderAmendment` |
-| [cancelOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L334) | :closed_lock_with_key:  | DELETE | `dapi/v1/order` |
-| [cancelMultipleOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L338) | :closed_lock_with_key:  | DELETE | `dapi/v1/batchOrders` |
-| [cancelAllOpenOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L358) | :closed_lock_with_key:  | DELETE | `dapi/v1/allOpenOrders` |
-| [setCancelOrdersOnTimeout()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L365) | :closed_lock_with_key:  | POST | `dapi/v1/countdownCancelAll` |
-| [getOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L371) | :closed_lock_with_key:  | GET | `dapi/v1/order` |
-| [getAllOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L375) | :closed_lock_with_key:  | GET | `dapi/v1/allOrders` |
-| [getAllOpenOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L379) | :closed_lock_with_key:  | GET | `dapi/v1/openOrders` |
-| [getCurrentOpenOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L383) | :closed_lock_with_key:  | GET | `dapi/v1/openOrder` |
-| [submitNewAlgoOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L394) | :closed_lock_with_key:  | POST | `dapi/v1/algoOrder` |
-| [cancelAlgoOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L401) | :closed_lock_with_key:  | DELETE | `dapi/v1/algoOrder` |
-| [getOpenAlgoOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L407) | :closed_lock_with_key:  | GET | `dapi/v1/openAlgoOrders` |
-| [getForceOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L413) | :closed_lock_with_key:  | GET | `dapi/v1/forceOrders` |
-| [getAccountTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L417) | :closed_lock_with_key:  | GET | `dapi/v1/userTrades` |
-| [getPositions()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L423) | :closed_lock_with_key:  | GET | `dapi/v1/positionRisk` |
-| [setPositionMode()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L430) | :closed_lock_with_key:  | POST | `dapi/v1/positionSide/dual` |
-| [setMarginType()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L434) | :closed_lock_with_key:  | POST | `dapi/v1/marginType` |
-| [setLeverage()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L438) | :closed_lock_with_key:  | POST | `dapi/v1/leverage` |
-| [getADLQuantileEstimation()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L442) | :closed_lock_with_key:  | GET | `dapi/v1/adlQuantile` |
-| [setIsolatedPositionMargin()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L446) | :closed_lock_with_key:  | POST | `dapi/v1/positionMargin` |
-| [getPositionMarginChangeHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L452) | :closed_lock_with_key:  | GET | `dapi/v1/positionMargin/history` |
-| [getBalance()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L463) | :closed_lock_with_key:  | GET | `dapi/v1/balance` |
-| [getAccountCommissionRate()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L467) | :closed_lock_with_key:  | GET | `dapi/v1/commissionRate` |
-| [getAccountInformation()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L473) | :closed_lock_with_key:  | GET | `dapi/v1/account` |
-| [getNotionalAndLeverageBrackets()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L480) | :closed_lock_with_key:  | GET | `dapi/v2/leverageBracket` |
-| [getCurrentPositionMode()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L489) | :closed_lock_with_key:  | GET | `dapi/v1/positionSide/dual` |
-| [getIncomeHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L493) | :closed_lock_with_key:  | GET | `dapi/v1/income` |
-| [getDownloadIdForFuturesTransactionHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L497) | :closed_lock_with_key:  | GET | `dapi/v1/income/asyn` |
-| [getFuturesTransactionHistoryDownloadLink()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L507) | :closed_lock_with_key:  | GET | `dapi/v1/income/asyn/id` |
-| [getDownloadIdForFuturesOrderHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L513) | :closed_lock_with_key:  | GET | `dapi/v1/order/asyn` |
-| [getFuturesOrderHistoryDownloadLink()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L523) | :closed_lock_with_key:  | GET | `dapi/v1/order/asyn/id` |
-| [getDownloadIdForFuturesTradeHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L529) | :closed_lock_with_key:  | GET | `dapi/v1/trade/asyn` |
-| [getFuturesTradeHistoryDownloadLink()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L539) | :closed_lock_with_key:  | GET | `dapi/v1/trade/asyn/id` |
-| [getClassicPortfolioMarginAccount()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L551) | :closed_lock_with_key:  | GET | `dapi/v1/pmAccountInfo` |
-| [getClassicPortfolioMarginNotionalLimits()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L560) | :closed_lock_with_key:  | GET | `dapi/v1/pmExchangeInfo` |
-| [getBrokerIfNewFuturesUser()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L579) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/ifNewUser` |
-| [setBrokerCustomIdForClient()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L592) | :closed_lock_with_key:  | POST | `dapi/v1/apiReferral/customization` |
-| [getBrokerClientCustomIds()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L605) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/customization` |
-| [getBrokerUserCustomId()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L622) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/userCustomization` |
-| [getBrokerRebateDataOverview()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L631) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/overview` |
-| [getBrokerUserTradeVolume()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L640) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/tradeVol` |
-| [getBrokerRebateVolume()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L657) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/rebateVol` |
-| [getBrokerTradeDetail()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L674) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/traderSummary` |
-| [getFuturesUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L694) |  | POST | `dapi/v1/listenKey` |
-| [keepAliveFuturesUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L698) |  | PUT | `dapi/v1/listenKey` |
-| [closeFuturesUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L702) |  | DELETE | `dapi/v1/listenKey` |
+| [testConnectivity()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L128) |  | GET | `dapi/v1/ping` |
+| [getExchangeInfo()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L132) |  | GET | `dapi/v1/exchangeInfo` |
+| [getOrderBook()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L136) |  | GET | `dapi/v1/depth` |
+| [getRecentTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L140) |  | GET | `dapi/v1/trades` |
+| [getHistoricalTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L144) |  | GET | `dapi/v1/historicalTrades` |
+| [getAggregateTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L150) |  | GET | `dapi/v1/aggTrades` |
+| [getMarkPrice()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L159) |  | GET | `dapi/v1/premiumIndex` |
+| [getFundingRateHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L163) |  | GET | `dapi/v1/fundingRate` |
+| [getFundingRate()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L169) |  | GET | `dapi/v1/fundingInfo` |
+| [getKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L173) |  | GET | `dapi/v1/klines` |
+| [getContinuousContractKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L177) |  | GET | `dapi/v1/continuousKlines` |
+| [getIndexPriceKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L183) |  | GET | `dapi/v1/indexPriceKlines` |
+| [getMarkPriceKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L187) |  | GET | `dapi/v1/markPriceKlines` |
+| [getPremiumIndexKlines()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L191) |  | GET | `dapi/v1/premiumIndexKlines` |
+| [get24hrChangeStatistics()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L195) |  | GET | `dapi/v1/ticker/24hr` |
+| [getSymbolPriceTicker()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L202) |  | GET | `dapi/v1/ticker/price` |
+| [getSymbolOrderBookTicker()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L209) |  | GET | `dapi/v1/ticker/bookTicker` |
+| [getOpenInterest()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L218) |  | GET | `dapi/v1/openInterest` |
+| [getOpenInterestStatistics()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L222) |  | GET | `futures/data/openInterestHist` |
+| [getTopTradersLongShortAccountRatio()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L226) |  | GET | `futures/data/topLongShortAccountRatio` |
+| [getTopTradersLongShortPositionRatio()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L232) |  | GET | `futures/data/topLongShortPositionRatio` |
+| [getGlobalLongShortAccountRatio()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L238) |  | GET | `futures/data/globalLongShortAccountRatio` |
+| [getTakerBuySellVolume()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L244) |  | GET | `futures/data/takerBuySellVol` |
+| [getCompositeSymbolIndex()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L250) |  | GET | `futures/data/basis` |
+| [getIndexPriceConstituents()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L258) |  | GET | `dapi/v1/constituents` |
+| [getQuarterlyContractSettlementPrices()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L268) |  | GET | `futures/data/delivery-price` |
+| [submitNewOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L280) | :closed_lock_with_key:  | POST | `dapi/v1/order` |
+| [submitMultipleOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L290) | :closed_lock_with_key:  | POST | `dapi/v1/batchOrders` |
+| [modifyOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L307) | :closed_lock_with_key:  | PUT | `dapi/v1/order` |
+| [modifyMultipleOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L316) | :closed_lock_with_key:  | PUT | `dapi/v1/batchOrders` |
+| [getOrderModifyHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L329) | :closed_lock_with_key:  | GET | `dapi/v1/orderAmendment` |
+| [cancelOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L335) | :closed_lock_with_key:  | DELETE | `dapi/v1/order` |
+| [cancelMultipleOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L339) | :closed_lock_with_key:  | DELETE | `dapi/v1/batchOrders` |
+| [cancelAllOpenOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L359) | :closed_lock_with_key:  | DELETE | `dapi/v1/allOpenOrders` |
+| [setCancelOrdersOnTimeout()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L366) | :closed_lock_with_key:  | POST | `dapi/v1/countdownCancelAll` |
+| [getOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L372) | :closed_lock_with_key:  | GET | `dapi/v1/order` |
+| [getAllOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L376) | :closed_lock_with_key:  | GET | `dapi/v1/allOrders` |
+| [getAllOpenOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L380) | :closed_lock_with_key:  | GET | `dapi/v1/openOrders` |
+| [getCurrentOpenOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L384) | :closed_lock_with_key:  | GET | `dapi/v1/openOrder` |
+| [submitNewAlgoOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L395) | :closed_lock_with_key:  | POST | `dapi/v1/algoOrder` |
+| [cancelAlgoOrder()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L402) | :closed_lock_with_key:  | DELETE | `dapi/v1/algoOrder` |
+| [getOpenAlgoOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L408) | :closed_lock_with_key:  | GET | `dapi/v1/openAlgoOrders` |
+| [getForceOrders()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L414) | :closed_lock_with_key:  | GET | `dapi/v1/forceOrders` |
+| [getAccountTrades()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L418) | :closed_lock_with_key:  | GET | `dapi/v1/userTrades` |
+| [getPositions()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L424) | :closed_lock_with_key:  | GET | `dapi/v1/positionRisk` |
+| [setPositionMode()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L431) | :closed_lock_with_key:  | POST | `dapi/v1/positionSide/dual` |
+| [setMarginType()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L435) | :closed_lock_with_key:  | POST | `dapi/v1/marginType` |
+| [setLeverage()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L439) | :closed_lock_with_key:  | POST | `dapi/v1/leverage` |
+| [getADLQuantileEstimation()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L443) | :closed_lock_with_key:  | GET | `dapi/v1/adlQuantile` |
+| [setIsolatedPositionMargin()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L447) | :closed_lock_with_key:  | POST | `dapi/v1/positionMargin` |
+| [getPositionMarginChangeHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L453) | :closed_lock_with_key:  | GET | `dapi/v1/positionMargin/history` |
+| [getBalance()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L464) | :closed_lock_with_key:  | GET | `dapi/v1/balance` |
+| [getAccountCommissionRate()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L468) | :closed_lock_with_key:  | GET | `dapi/v1/commissionRate` |
+| [getAccountInformation()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L474) | :closed_lock_with_key:  | GET | `dapi/v1/account` |
+| [getNotionalAndLeverageBrackets()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L481) | :closed_lock_with_key:  | GET | `dapi/v2/leverageBracket` |
+| [getCurrentPositionMode()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L490) | :closed_lock_with_key:  | GET | `dapi/v1/positionSide/dual` |
+| [getIncomeHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L494) | :closed_lock_with_key:  | GET | `dapi/v1/income` |
+| [getDownloadIdForFuturesTransactionHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L498) | :closed_lock_with_key:  | GET | `dapi/v1/income/asyn` |
+| [getFuturesTransactionHistoryDownloadLink()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L508) | :closed_lock_with_key:  | GET | `dapi/v1/income/asyn/id` |
+| [getDownloadIdForFuturesOrderHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L514) | :closed_lock_with_key:  | GET | `dapi/v1/order/asyn` |
+| [getFuturesOrderHistoryDownloadLink()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L524) | :closed_lock_with_key:  | GET | `dapi/v1/order/asyn/id` |
+| [getDownloadIdForFuturesTradeHistory()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L530) | :closed_lock_with_key:  | GET | `dapi/v1/trade/asyn` |
+| [getFuturesTradeHistoryDownloadLink()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L540) | :closed_lock_with_key:  | GET | `dapi/v1/trade/asyn/id` |
+| [getClassicPortfolioMarginAccount()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L552) | :closed_lock_with_key:  | GET | `dapi/v1/pmAccountInfo` |
+| [getClassicPortfolioMarginNotionalLimits()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L561) | :closed_lock_with_key:  | GET | `dapi/v1/pmExchangeInfo` |
+| [getBrokerIfNewFuturesUser()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L580) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/ifNewUser` |
+| [setBrokerCustomIdForClient()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L593) | :closed_lock_with_key:  | POST | `dapi/v1/apiReferral/customization` |
+| [getBrokerClientCustomIds()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L606) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/customization` |
+| [getBrokerUserCustomId()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L623) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/userCustomization` |
+| [getBrokerRebateDataOverview()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L632) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/overview` |
+| [getBrokerUserTradeVolume()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L641) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/tradeVol` |
+| [getBrokerRebateVolume()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L658) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/rebateVol` |
+| [getBrokerTradeDetail()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L675) | :closed_lock_with_key:  | GET | `dapi/v1/apiReferral/traderSummary` |
+| [getFuturesUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L695) |  | POST | `dapi/v1/listenKey` |
+| [keepAliveFuturesUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L699) |  | PUT | `dapi/v1/listenKey` |
+| [closeFuturesUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/coinm-client.ts#L703) |  | DELETE | `dapi/v1/listenKey` |
 
 # portfolio-client.ts
 

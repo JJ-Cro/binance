@@ -1194,16 +1194,39 @@ export class WebsocketClientV1 extends EventEmitter {
   }
 
   /**
+   * Subscribe to block trades for a symbol in spot markets.
+   */
+  public subscribeBlockTrades(
+    symbol: string,
+    forceNewConnection?: boolean,
+  ): WebSocket {
+    const lowerCaseSymbol = symbol.toLowerCase();
+    const streamName = 'blockTrade';
+    const market: WsMarket = 'spot';
+    const wsKey = getLegacyWsStoreKeyWithContext(
+      market,
+      streamName,
+      lowerCaseSymbol,
+    );
+    return this.connectToWsUrl(
+      this.getWsBaseUrl(market, wsKey) + `/ws/${lowerCaseSymbol}@${streamName}`,
+      wsKey,
+      forceNewConnection,
+    );
+  }
+
+  /**
    * Subscribe to coin index for a symbol in COINM Futures markets
+   * `_updateSpeedMs` is ignored (`<pair>@indexPrice@1s` was removed). Drop this arg in the next major.
    */
   public subscribeCoinIndexPrice(
     symbol: string,
-    updateSpeedMs: 1000 | 3000 = 3000,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _updateSpeedMs: 1000 | 3000 = 3000,
     forceNewConnection?: boolean,
   ): WebSocket {
     const lowerCaseSymbol = symbol.toLowerCase();
     const streamName = 'indexPrice';
-    const speedSuffix = updateSpeedMs === 1000 ? '@1s' : '';
     const market: WsMarket = 'coinm';
     const wsKey = getLegacyWsStoreKeyWithContext(
       market,
@@ -1211,8 +1234,7 @@ export class WebsocketClientV1 extends EventEmitter {
       lowerCaseSymbol,
     );
     return this.connectToWsUrl(
-      this.getWsBaseUrl(market, wsKey) +
-        `/ws/${lowerCaseSymbol}@${streamName}${speedSuffix}`,
+      this.getWsBaseUrl(market, wsKey) + `/ws/${lowerCaseSymbol}@${streamName}`,
       wsKey,
       forceNewConnection,
     );
@@ -1649,6 +1671,16 @@ export class WebsocketClientV1 extends EventEmitter {
     forceNewConnection?: boolean,
   ): WebSocket {
     return this.subscribeTrades(symbol, 'spot', forceNewConnection);
+  }
+
+  /**
+   * Subscribe to block trades for a symbol in spot markets.
+   */
+  public subscribeSpotBlockTrades(
+    symbol: string,
+    forceNewConnection?: boolean,
+  ): WebSocket {
+    return this.subscribeBlockTrades(symbol, forceNewConnection);
   }
 
   /**

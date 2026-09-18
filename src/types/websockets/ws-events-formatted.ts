@@ -104,6 +104,17 @@ export interface WsMessageTradeFormatted extends WsSharedBase {
   ignored: boolean;
 }
 
+export interface WsMessageBlockTradeFormatted extends WsSharedBase {
+  eventType: 'blockTrade';
+  eventTime: number;
+  symbol: string;
+  tradeId: number;
+  price: number;
+  quantity: number;
+  time: number;
+  maker: boolean;
+}
+
 export interface WsMessage24hrMiniTickerFormatted extends WsSharedBase {
   eventType: '24hrMiniTicker';
   eventTime: number;
@@ -589,6 +600,7 @@ export interface WsMessageFuturesUserDataAlgoUpdateFormatted
     triggerTime: number;
     goodTillDate: number;
     isActivated?: boolean; // trailing stop activation; placeholder, always false for now
+    // As of 2026-08-21 this is fully active for trailing stop orders (false then true while status stays NEW).
   };
 }
 
@@ -622,6 +634,7 @@ export type WsFormattedMessage =
   | WsMessageKlineFormatted
   | WsMessageAggTradeFormatted
   | WsMessageTradeFormatted
+  | WsMessageBlockTradeFormatted
   | WsMessage24hrMiniTickerFormatted
   | WsMessage24hrTickerFormatted
   | WsMessageBookTickerEventFormatted
