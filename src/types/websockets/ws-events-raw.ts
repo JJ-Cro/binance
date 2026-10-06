@@ -15,6 +15,7 @@ import {
   OCOStatus,
   OrderBookRow,
   OrderExecutionType,
+  OrderListContingencyType,
   OrderSide,
   OrderStatus,
   OrderTimeInForce,
@@ -22,6 +23,9 @@ import {
   SelfTradePreventionMode,
 } from '../shared';
 import { WsSharedBase } from './ws-general';
+
+/** 1 = USD-M, 2 = COIN-M. Present on merged futures market streams. */
+export type FuturesMarketSymbolType = 1 | 2;
 
 export interface WsMessageKlineRaw extends WsSharedBase {
   e: 'kline';
@@ -59,6 +63,7 @@ export interface WsMessageAggTradeRaw extends WsSharedBase {
   T: number;
   m: boolean;
   M: boolean;
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageTradeRaw extends WsSharedBase {
@@ -96,6 +101,7 @@ export interface WsMessage24hrMiniTickerRaw extends WsSharedBase {
   l: numberInString;
   v: numberInString;
   q: numberInString;
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessage24hrTickerRaw extends WsSharedBase {
@@ -122,6 +128,7 @@ export interface WsMessage24hrTickerRaw extends WsSharedBase {
   F: number;
   L: number;
   n: number;
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageRollingWindowTickerRaw extends WsSharedBase {
@@ -154,6 +161,7 @@ export interface WsMessageBookTickerEventRaw extends WsSharedBase {
   B: numberInString;
   a: numberInString;
   A: numberInString;
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessagePartialBookDepthEventRaw extends WsSharedBase {
@@ -161,6 +169,7 @@ export interface WsMessagePartialBookDepthEventRaw extends WsSharedBase {
   lastUpdateId: number;
   bids: OrderBookRow[];
   asks: OrderBookRow[];
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageDiffBookDepthEventRaw extends WsSharedBase {
@@ -173,6 +182,7 @@ export interface WsMessageDiffBookDepthEventRaw extends WsSharedBase {
   pu: number; // futures only
   b: OrderBookRow[];
   a: OrderBookRow[];
+  st?: FuturesMarketSymbolType;
 }
 
 /**
@@ -277,12 +287,30 @@ export interface OrderObjectRaw {
   c: string;
 }
 
+export interface WsMessageMarginLevelChangeRaw extends WsSharedBase {
+  e: 'marginLevelChange';
+  E: number;
+  l: string;
+  s: string;
+}
+
+export interface WsMessageMarginLiabilityChangeRaw extends WsSharedBase {
+  e: 'liabilityChange';
+  E: number;
+  t: 'BORROW' | 'REPAY' | 'INTEREST' | 'DEBT_CHANGE';
+  L: {
+    a: string;
+    p: string;
+    i: string;
+  }[];
+}
+
 export interface WsMessageSpotUserDataListStatusEventRaw extends WsSharedBase {
   e: 'listStatus';
   E: number;
   s: string;
   g: number;
-  c: 'OCO';
+  c: OrderListContingencyType;
   l: OCOStatus;
   L: OCOOrderStatus;
   r: string;
@@ -507,6 +535,7 @@ export interface WsMessageMarkPriceUpdateEventRaw extends WsSharedBase {
   i: string;
   r: string;
   T: number;
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageForceOrderRaw extends WsSharedBase {
@@ -525,6 +554,7 @@ export interface WsMessageForceOrderRaw extends WsSharedBase {
     z: string;
     T: number;
   };
+  st?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageFuturesUserDataStrategyUpdateRaw
@@ -578,6 +608,7 @@ export interface WsMessageFuturesUserDataContractInfoRaw extends WsSharedBase {
     mi: number; // Min leverage for this bracket
     ma: number; // Max leverage for this bracket
   }[];
+  st?: FuturesMarketSymbolType;
 }
 
 export type WsRawSpotUserDataEventRaw =
