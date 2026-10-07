@@ -1151,6 +1151,7 @@ export interface TradingSchedule {
     KR_EQUITY?: MarketSchedule;
     HK_EQUITY?: MarketSchedule;
     CN_EQUITY?: MarketSchedule;
+    FX?: MarketSchedule;
   };
 }
 

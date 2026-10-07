@@ -411,6 +411,7 @@ import {
   MarginLiquidationLoan,
   MarginLiquidationLoanRepayHistoryResponse,
   MarginLiquidationLoanRepayResponse,
+  MarginOpenOTOOrderList,
   MarginOrderCountUsageResponse,
   MarginOTOCOOrder,
   MarginOTOOrder,
@@ -483,6 +484,7 @@ import {
   QueryMarginAccountTradeListParams,
   QueryMarginAssetResponse,
   QueryMarginInterestRateHistoryParams,
+  QueryMarginOpenOTOOrderListsParams,
   QueryMarginPriceIndexResponse,
   QueryMarginRecordParams,
   QueryMaxBorrowResponse,
@@ -1358,6 +1360,12 @@ export class MainClient extends BaseRestClient {
     symbol?: string;
   }): Promise<any> {
     return this.getPrivate('sapi/v1/margin/openOrderList', params);
+  }
+
+  queryMarginAccountOpenOTOOrderLists(
+    params: QueryMarginOpenOTOOrderListsParams,
+  ): Promise<MarginOpenOTOOrderList[]> {
+    return this.getPrivate('sapi/v1/margin/oto/openOrderList', params);
   }
 
   queryMarginAccountOpenOrders(params: BasicSymbolParam): Promise<SpotOrder[]> {
@@ -3238,9 +3246,11 @@ export class MainClient extends BaseRestClient {
     return this.postPrivate('sapi/v1/algo/futures/newOrderTwap', params);
   }
 
-  cancelAlgoOrder(params: {
-    algoId: number;
-  }): Promise<CancelAlgoOrderResponse> {
+  cancelAlgoOrder(
+    params:
+      | { algoId: number; clientAlgoId?: string }
+      | { clientAlgoId: string; algoId?: number },
+  ): Promise<CancelAlgoOrderResponse> {
     return this.deletePrivate('sapi/v1/algo/futures/order', params);
   }
 
@@ -3277,9 +3287,11 @@ export class MainClient extends BaseRestClient {
     return this.postPrivate('sapi/v1/algo/spot/newOrderTwap', params);
   }
 
-  cancelSpotAlgoOrder(params: {
-    algoId: number;
-  }): Promise<CancelSpotAlgoOrderResponse> {
+  cancelSpotAlgoOrder(
+    params:
+      | { algoId: number; clientAlgoId?: string }
+      | { clientAlgoId: string; algoId?: number },
+  ): Promise<CancelSpotAlgoOrderResponse> {
     return this.deletePrivate('sapi/v1/algo/spot/order', params);
   }
 
@@ -4954,6 +4966,18 @@ export class MainClient extends BaseRestClient {
 
   closeMarginRiskUserDataListenKey(): Promise<object> {
     return this.delete('sapi/v1/margin/listen-key');
+  }
+
+  getMarginUtaUserDataListenKey(): Promise<{ listenKey: string }> {
+    return this.post('sapi/v2/margin/uta/listen-key');
+  }
+
+  keepAliveMarginUtaUserDataListenKey(listenKey: string): Promise<object> {
+    return this.put(`sapi/v2/margin/uta/listen-key?listenKey=${listenKey}`);
+  }
+
+  closeMarginUtaUserDataListenKey(): Promise<object> {
+    return this.delete('sapi/v2/margin/uta/listen-key');
   }
 
   /**

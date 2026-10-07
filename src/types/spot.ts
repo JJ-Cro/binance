@@ -818,8 +818,8 @@ export interface OrderResponseResult extends SpotNewOrderConditionalFields {
 export interface OrderFill {
   price: numberInString;
   qty: numberInString;
-  commission: numberInString;
-  commissionAsset: string;
+  commission: numberInString | null;
+  commissionAsset: string | null;
   tradeId: number;
 }
 
@@ -1766,11 +1766,11 @@ export interface SubAccountUniversalTransferParams {
 export interface SubAccountMovePositionParams {
   fromUserEmail: string;
   toUserEmail: string;
-  productType: string;
+  productType: 'UM' | 'OPTION';
   orderArgs: {
     symbol: string;
     quantity: number;
-    positionSide: 'BOTH' | 'LONG' | 'SHORT';
+    positionSide?: 'BOTH' | 'LONG' | 'SHORT';
   }[];
 }
 export interface SubAccountUniversalTransfer extends SubAccountTransfer {
@@ -1780,18 +1780,19 @@ export interface SubAccountUniversalTransfer extends SubAccountTransfer {
 export interface SubAccountMovePosition {
   fromUserEmail: string;
   toUserEmail: string;
-  productType: string;
+  productType: 'UM' | 'OPTION';
   symbol: string;
   priceType: string;
   price: string;
   quantity: string;
-  positionSide: string;
+  positionSide: string | null;
   side: string;
   success: boolean;
 }
 
 export interface SubAccountMovePositionHistoryParams {
   symbol: string;
+  productType?: 'UM' | 'OPTION';
   startTime?: number;
   endTime?: number;
   page: number;
@@ -1801,11 +1802,11 @@ export interface SubAccountMovePositionHistoryParams {
 export interface SubAccountMovePositionHistory {
   fromUserEmail: string;
   toUserEmail: string;
-  productType: string;
+  productType: 'UM' | 'OPTION';
   symbol: string;
   price: string;
   quantity: string;
-  positionSide: string;
+  positionSide: string | null;
   side: string;
   timeStamp: number;
 }
@@ -6094,9 +6095,30 @@ export interface SubmitMarginOTOCOOrderParams {
   pendingBelowTimeInForce?: 'GTC' | 'IOC' | 'FOK';
 }
 
+export interface QueryMarginOpenOTOOrderListsParams {
+  isIsolated?: 'TRUE' | 'FALSE';
+  symbol?: string;
+}
+
+export interface MarginOpenOTOOrderList {
+  orderListId: number;
+  contingencyType: 'OTO' | 'OTOCO';
+  listStatusType: string;
+  listOrderStatus: string;
+  listClientOrderId: string;
+  transactionTime: number;
+  symbol: string;
+  isIsolated: boolean;
+  orders: {
+    symbol: string;
+    orderId: number;
+    clientOrderId: string;
+  }[];
+}
+
 export interface MarginOTOCOOrder {
   orderListId: number;
-  contingencyType: 'OTO';
+  contingencyType: 'OTO' | 'OTOCO';
   listStatusType: 'EXEC_STARTED';
   listOrderStatus: 'EXECUTING';
   listClientOrderId: string;
@@ -6637,6 +6659,12 @@ export interface InstitutionalLoanCollateralAccount {
 
 export interface InstitutionalLoanRiskUnitDetails {
   groupId: number;
+  leverageTier: string;
+  initialLtv: string;
+  marginCallLtv: string;
+  liquidationLtv: string;
+  liquidationExitLtv: string;
+  maxTransferOutLtv: string;
   parentEmail: string;
   creditEmail: string;
   updateTime: number;
@@ -6644,6 +6672,11 @@ export interface InstitutionalLoanRiskUnitDetails {
   totalNetEquity: string;
   totalMaintenanceMargin: string;
   totalLiability: string;
+  // Transfer-out LTV. Excludes Spot-wallet collateral, so it can be higher than `ltv`.
+  transferOutLtv: string;
+  parentAccountFrozenAmount: string;
+  maxTransferOutAmount: string;
+  maxAllowedBorrowLimit: string;
   liabilities: InstitutionalLoanLiability[];
   collateralAccounts: InstitutionalLoanCollateralAccount[];
 }

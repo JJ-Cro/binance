@@ -16,7 +16,7 @@ const client = new USDMClient({
 (async () => {
   try {
     const symbol = process.env.BINANCE_EXAMPLE_SYMBOL || 'ETHUSDT';
-    const quantity = Number(process.env.BINANCE_EXAMPLE_QUANTITY || '0.01');
+    const quantity = Number(process.env.BINANCE_EXAMPLE_QUANTITY || '0.1');
 
     const assetPrices = await client.getMarkPrice({ symbol });
     const markPrice = Number(assetPrices.markPrice);

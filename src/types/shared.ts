@@ -84,6 +84,13 @@ export type OrderExecutionType =
   | 'TRADE'
   | 'EXPIRED';
 
+export type OrderListContingencyType =
+  | 'OCO'
+  | 'OTO'
+  | 'OTOCO'
+  | 'OPO'
+  | 'OPOCO';
+
 // listStatusType
 export type OCOStatus = 'RESPONSE' | 'EXEC_STARTED' | 'ALL_DONE';
 

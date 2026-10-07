@@ -18,6 +18,8 @@ export const EVENT_TYPES_USER_DATA = [
   'balanceUpdate',
   'executionReport',
   'listStatus',
+  'liabilityChange',
+  'marginLevelChange',
   'listenKeyExpired',
   'outboundAccountPosition',
   'ACCOUNT_CONFIG_UPDATE',

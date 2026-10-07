@@ -16,13 +16,17 @@ import {
   OCOStatus,
   OrderBookRowFormatted,
   OrderExecutionType,
+  OrderListContingencyType,
   OrderSide,
   OrderStatus,
   OrderTimeInForce,
   OrderType,
   SelfTradePreventionMode,
 } from '../shared';
-import { AccountUpdateEventType } from './ws-events-raw';
+import {
+  AccountUpdateEventType,
+  FuturesMarketSymbolType,
+} from './ws-events-raw';
 import { WsSharedBase } from './ws-general';
 
 export interface WsMessageKlineFormatted extends WsSharedBase {
@@ -88,6 +92,7 @@ export interface WsMessageAggTradeFormatted extends WsSharedBase {
   time: number;
   maker: boolean;
   ignored: boolean;
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageTradeFormatted extends WsSharedBase {
@@ -126,6 +131,7 @@ export interface WsMessage24hrMiniTickerFormatted extends WsSharedBase {
   low: number;
   baseAssetVolume: number;
   quoteAssetVolume: number;
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessage24hrTickerFormatted extends WsSharedBase {
@@ -157,6 +163,7 @@ export interface WsMessage24hrTickerFormatted extends WsSharedBase {
   firstTradeId: number;
   lastTradeId: number;
   trades: number;
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageRollingWindowTickerFormatted extends WsSharedBase {
@@ -191,6 +198,7 @@ export interface WsMessageBookTickerEventFormatted extends WsSharedBase {
   bidQty: number;
   askPrice: number;
   askQty: number;
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessagePartialBookDepthEventFormatted extends WsSharedBase {
@@ -198,6 +206,7 @@ export interface WsMessagePartialBookDepthEventFormatted extends WsSharedBase {
   lastUpdateId: number;
   bids: OrderBookRowFormatted[];
   asks: OrderBookRowFormatted[];
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageDiffBookDepthEventFormatted extends WsSharedBase {
@@ -210,6 +219,7 @@ export interface WsMessageDiffBookDepthEventFormatted extends WsSharedBase {
   finalUpdateId: number; // futures only
   bidDepthDelta: { price: number; quantity: number }[];
   askDepthDelta: { price: number; quantity: number }[];
+  symbolType?: FuturesMarketSymbolType;
 }
 
 /**
@@ -320,13 +330,38 @@ export interface WsMessageSpotUserDataListStatusEventFormatted
   eventTime: number;
   symbol: string;
   orderListId: number;
-  contingencyType: 'OCO';
+  contingencyType: OrderListContingencyType;
   listStatusType: OCOStatus;
   listOrderStatus: OCOOrderStatus;
   listRejectReason: string;
   listClientOrderId: string;
   transactionTime: number;
   orders: OrderObjectFormatted[];
+}
+
+export interface WsMessageMarginLevelChangeFormatted extends WsSharedBase {
+  eventType: 'marginLevelChange';
+  eventTime: number;
+  marginLevel: string;
+  status: string;
+}
+
+export interface WsMessageMarginLiabilityChangeAssetFormatted {
+  asset: string;
+  principal: string;
+  interest: string;
+}
+
+export interface WsMessageMarginLiabilityChangeFormatted extends WsSharedBase {
+  eventType: 'liabilityChange';
+  eventTime: number;
+  type: string;
+  asset?: string;
+  transactionId?: number;
+  principal?: string;
+  interest?: string;
+  totalLiability?: string;
+  liabilities?: WsMessageMarginLiabilityChangeAssetFormatted[];
 }
 
 export interface WsAccountUpdatedBalance {
@@ -492,6 +527,7 @@ export interface WsMessageMarkPriceEventFormatted extends WsSharedBase {
   /** Note this is in decimal format (e.g. 0.0004 === 0.04%). Multiply by 100 to get funding rate percent value */
   fundingRate: number | '';
   nextFundingTime: number;
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsLiquidationOrderFormatted {
@@ -512,6 +548,7 @@ export interface WsMessageForceOrderFormatted extends WsSharedBase {
   eventType: 'forceOrder';
   eventTime: number;
   liquidationOrder: WsLiquidationOrderFormatted;
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageFuturesUserDataStrategyUpdateFormatted
@@ -567,6 +604,7 @@ export interface WsMessageFuturesUserDataContractInfoFormatted
     minLeverage: number;
     maxLeverage: number;
   }[];
+  symbolType?: FuturesMarketSymbolType;
 }
 
 export interface WsMessageFuturesUserDataAlgoUpdateFormatted
@@ -626,7 +664,9 @@ export type WsMessageFuturesUserDataEventFormatted =
 export type WsUserDataEvents =
   | WsMessageSpotUserDataEventFormatted
   | WsMessageFuturesUserDataEventFormatted
-  | WsMessagePortfolioMarginProAccountUpdateFormatted;
+  | WsMessagePortfolioMarginProAccountUpdateFormatted
+  | WsMessageMarginLevelChangeFormatted
+  | WsMessageMarginLiabilityChangeFormatted;
 
 export type WsFormattedMessage =
   | WsUserDataEvents

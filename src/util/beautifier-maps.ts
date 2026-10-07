@@ -52,6 +52,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     B: 'bidQty',
     a: 'askPrice',
     A: 'askQty',
+    st: 'symbolType',
   },
   klines: {
     0: 'openTime',
@@ -99,6 +100,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     pu: 'finalUpdateId', // Final update Id in last stream(ie `u` in last stream)
     b: 'bidDepthDelta',
     a: 'askDepthDelta',
+    st: 'symbolType',
   },
   depthOptionsEvent: {
     e: 'eventType',
@@ -188,6 +190,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     T: 'time',
     m: 'maker',
     M: 'ignored',
+    st: 'symbolType',
   },
   outboundAccountInfoEvent: {
     e: 'eventType',
@@ -251,6 +254,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     P: 'settlePriceEstimate',
     r: 'fundingRate',
     T: 'nextFundingTime',
+    st: 'symbolType',
   },
   markPriceEvent: {
     e: 'eventType',
@@ -263,6 +267,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     r: 'fundingRate',
     T: 'nextFundingTime',
     mp: 'optionsMarkPrice',
+    st: 'symbolType',
   },
   markPriceOptionsEvent: {
     e: 'eventType',
@@ -626,6 +631,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     F: 'firstTradeId',
     L: 'lastTradeId',
     n: 'trades',
+    st: 'symbolType',
   },
   tickerEvent: {
     e: 'eventType',
@@ -656,6 +662,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     F: 'firstTradeId',
     L: 'lastTradeId',
     n: 'trades',
+    st: 'symbolType',
   },
   tickerOptionsEvent: {
     e: 'eventType',
@@ -708,6 +715,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     l: 'low',
     v: 'baseAssetVolume',
     q: 'quoteAssetVolume',
+    st: 'symbolType',
   },
   miniTickerEvent: {
     e: 'eventType',
@@ -720,6 +728,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     l: 'low',
     v: 'baseAssetVolume',
     q: 'quoteAssetVolume',
+    st: 'symbolType',
   },
   '1hTickerEvent': rollingTickerEventMap,
   '4hTickerEvent': rollingTickerEventMap,
@@ -728,6 +737,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     e: 'eventType',
     E: 'eventTime',
     o: 'liquidationOrder',
+    st: 'symbolType',
   },
   liquidationOrder: {
     s: 'symbol',
@@ -751,6 +761,20 @@ export const BEAUTIFIER_EVENT_MAP = {
     p: 'principal', //Principal
     i: 'interest', //Interest
     l: 'totalLiability', //Total Liability
+    L: 'liabilities',
+  },
+  liabilities: [
+    {
+      a: 'asset',
+      p: 'principal',
+      i: 'interest',
+    },
+  ],
+  marginLevelChangeEvent: {
+    e: 'eventType',
+    E: 'eventTime',
+    l: 'marginLevel',
+    s: 'status',
   },
   contractInfoEvent: {
     e: 'eventType', // Event Type
@@ -762,6 +786,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     ot: 'onboardDateTime', // onboard date time
     cs: 'contractStatus', // Contract status
     bks: 'notionalBrackets',
+    st: 'symbolType',
   },
   notionalBrackets: [
     {
