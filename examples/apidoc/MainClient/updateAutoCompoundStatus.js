@@ -4,7 +4,11 @@ import { MainClient } from 'binance';
 
 // This example shows how to call this Binance API endpoint with either node.js, javascript (js) or typescript (ts) with the npm module "binance" for Binance exchange
 // This Binance API SDK is available on npm via "npm install binance"
-// ENDPOINT: sapi/v1/dci/product/auto_compound/edit-status
+//
+// DEPRECATED: Binance removed this endpoint (POST /sapi/v1/dci/product/auto_compound/edit-status).
+// updateAutoCompoundStatus() is deprecated and calls will fail. Configure auto-compound for Dual
+// Investment positions in the Binance web UI instead.
+// ENDPOINT: sapi/v1/dci/product/auto_compound/edit-status (removed)
 // METHOD: POST
 // PUBLIC: NO
 

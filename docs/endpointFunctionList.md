@@ -438,7 +438,7 @@ This table includes all endpoints from the official Exchange API docs and corres
 | [getDualInvestmentPositions()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3919) | :closed_lock_with_key:  | GET | `sapi/v1/dci/product/positions` |
 | [getDualInvestmentAccounts()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3928) | :closed_lock_with_key:  | GET | `sapi/v1/dci/product/accounts` |
 | [getVipLoanAccruedInterest()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3932) | :closed_lock_with_key:  | GET | `sapi/v1/loan/vip/accruedInterest` |
-| [updateAutoCompoundStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3939) | :closed_lock_with_key:  | POST | `sapi/v1/dci/product/auto_compound/edit-status` |
+| [updateAutoCompoundStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3939) **(deprecated - endpoint removed by Binance)** | :closed_lock_with_key:  | POST | `sapi/v1/dci/product/auto_compound/edit-status` (removed) |
 | [createGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3954) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/createCode` |
 | [createDualTokenGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3958) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/buyCode` |
 | [redeemGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3962) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/redeemCode` |

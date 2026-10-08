@@ -3936,6 +3936,11 @@ export class MainClient extends BaseRestClient {
     return this.getPrivate('sapi/v1/loan/vip/accruedInterest', params);
   }
 
+  /**
+   * @deprecated Binance removed `POST /sapi/v1/dci/product/auto_compound/edit-status`.
+   * Calls to this method will fail. Configure auto-compound for Dual Investment positions
+   * in the Binance web UI. This method will be removed in a future major version.
+   */
   updateAutoCompoundStatus(
     params: ChangeAutoCompoundStatusParams,
   ): Promise<ChangeAutoCompoundStatusResponse> {
