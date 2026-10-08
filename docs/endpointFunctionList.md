@@ -438,149 +438,149 @@ This table includes all endpoints from the official Exchange API docs and corres
 | [getDualInvestmentPositions()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3919) | :closed_lock_with_key:  | GET | `sapi/v1/dci/product/positions` |
 | [getDualInvestmentAccounts()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3928) | :closed_lock_with_key:  | GET | `sapi/v1/dci/product/accounts` |
 | [getVipLoanAccruedInterest()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3932) | :closed_lock_with_key:  | GET | `sapi/v1/loan/vip/accruedInterest` |
-| [updateAutoCompoundStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3939) | :closed_lock_with_key:  | POST | `sapi/v1/dci/product/auto_compound/edit-status` |
-| [createGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3954) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/createCode` |
-| [createDualTokenGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3958) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/buyCode` |
-| [redeemGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3962) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/redeemCode` |
-| [verifyGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3966) | :closed_lock_with_key:  | GET | `sapi/v1/giftcard/verify` |
-| [getTokenLimit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3970) | :closed_lock_with_key:  | GET | `sapi/v1/giftcard/buyCode/token-limit` |
-| [getRsaPublicKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3974) | :closed_lock_with_key:  | GET | `sapi/v1/giftcard/cryptography/rsa-public-key` |
-| [getNftTransactionHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3984) | :closed_lock_with_key:  | GET | `sapi/v1/nft/history/transactions` |
-| [getNftDepositHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3991) | :closed_lock_with_key:  | GET | `sapi/v1/nft/history/deposit` |
-| [getNftWithdrawHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3998) | :closed_lock_with_key:  | GET | `sapi/v1/nft/history/withdraw` |
-| [getNftAsset()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4005) | :closed_lock_with_key:  | GET | `sapi/v1/nft/user/getAsset` |
-| [getC2CTradeHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4018) | :closed_lock_with_key:  | GET | `sapi/v1/c2c/orderMatch/listUserOrderHistory` |
-| [getFiatOrderHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4033) | :closed_lock_with_key:  | GET | `sapi/v1/fiat/orders` |
-| [getFiatPaymentsHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4039) | :closed_lock_with_key:  | GET | `sapi/v1/fiat/payments` |
-| [fiatWithdraw()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4045) | :closed_lock_with_key:  | POST | `/sapi/v2/fiat/withdraw` |
-| [fiatDeposit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4049) | :closed_lock_with_key:  | POST | `sapi/v1/fiat/deposit` |
-| [getFiatOrderDetail()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4053) | :closed_lock_with_key:  | GET | `sapi/v1/fiat/get-order-detail` |
-| [getSpotRebateHistoryRecords()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4065) | :closed_lock_with_key:  | GET | `sapi/v1/rebate/taxQuery` |
-| [getPortfolioMarginIndexPrice()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4078) |  | GET | `sapi/v1/portfolio/asset-index-price` |
-| [getPortfolioMarginAssetLeverage()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4084) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/margin-asset-leverage` |
-| [getPortfolioMarginProCollateralRate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4090) |  | GET | `sapi/v1/portfolio/collateralRate` |
-| [getPortfolioMarginProTieredCollateralRate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4096) |  | GET | `sapi/v2/portfolio/collateralRate` |
-| [getPortfolioMarginProAccountInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4107) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/account` |
-| [getPortfolioDeltaMode()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4111) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/delta-mode` |
-| [switchPortfolioDeltaMode()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4115) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/delta-mode` |
-| [setPortfolioMarginMarginCallLevel()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4121) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/margin-call-level` |
-| [getPortfolioMarginMarginCallLevel()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4127) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/margin-call-level` |
-| [deletePortfolioMarginMarginCallLevel()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4131) | :closed_lock_with_key:  | DELETE | `sapi/v1/portfolio/margin-call-level` |
-| [bnbTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4135) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/bnb-transfer` |
-| [submitPortfolioMarginProFullTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4141) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/auto-collection` |
-| [submitPortfolioMarginProSpecificTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4147) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/asset-collection` |
-| [repayPortfolioMarginProBankruptcyLoan()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4153) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/repay` |
-| [getPortfolioMarginProBankruptcyLoanAmount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4161) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/pmLoan` |
-| [repayFuturesNegativeBalance()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4165) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/repay-futures-negative-balance` |
-| [updateAutoRepayFuturesStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4171) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/repay-futures-switch` |
-| [getAutoRepayFuturesStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4177) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/repay-futures-switch` |
-| [getPortfolioMarginProInterestHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4183) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/interest-history` |
-| [getPortfolioMarginProSpanAccountInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4189) | :closed_lock_with_key:  | GET | `sapi/v2/portfolio/account` |
-| [getPortfolioMarginProAccountBalance()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4193) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/balance` |
-| [mintPortfolioMarginBFUSD()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4203) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/mint` |
-| [redeemPortfolioMarginBFUSD()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4213) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/redeem` |
-| [getPortfolioMarginBankruptcyLoanRepayHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4221) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/pmLoan-history` |
-| [transferLDUSDTPortfolioMargin()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4236) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/earn-asset-transfer` |
-| [getTransferableEarnAssetBalanceForPortfolioMargin()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4249) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/earn-asset-balance` |
-| [getFuturesTickLevelOrderbookDataLink()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4266) | :closed_lock_with_key:  | GET | `sapi/v1/futures/histDataLink` |
-| [getBlvtInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4280) |  | GET | `sapi/v1/blvt/tokenInfo` |
-| [subscribeBlvt()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4284) | :closed_lock_with_key:  | POST | `sapi/v1/blvt/subscribe` |
-| [getBlvtSubscriptionRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4288) | :closed_lock_with_key:  | GET | `sapi/v1/blvt/subscribe/record` |
-| [redeemBlvt()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4294) | :closed_lock_with_key:  | POST | `sapi/v1/blvt/redeem` |
-| [getBlvtRedemptionRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4298) | :closed_lock_with_key:  | GET | `sapi/v1/blvt/redeem/record` |
-| [getBlvtUserLimitInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4304) | :closed_lock_with_key:  | GET | `sapi/v1/blvt/userLimit` |
-| [getPayTransactions()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4315) | :closed_lock_with_key:  | GET | `sapi/v1/pay/transactions` |
-| [getInstLoanRiskUnit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4325) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/ltv-details` |
-| [closeInstLoanRiskUnit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4331) | :closed_lock_with_key:  | DELETE | `sapi/v1/margin/loan-group` |
-| [addInstLoanCollateralAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4335) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/edit-member` |
-| [getActiveInstLoanRiskUnits()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4341) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-groups/activated` |
-| [getClosedInstLoanRiskUnits()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4345) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-groups/closed` |
-| [getInstLoanForceLiquidationRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4357) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/force-liquidation` |
-| [transferInstLoanRiskUnit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4371) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/transfer-out` |
-| [getInstitutionalLoanMaxBorrowable()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4383) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/max-borrowable` |
-| [borrowInstitutionalLoan()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4389) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/borrow` |
-| [getInstLoanInterestHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4395) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/interest-history` |
-| [repayInstitutionalLoan()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4404) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/repay` |
-| [getInstLoanBorrowRepayRecords()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4410) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/borrow-repay` |
-| [getMarginInterestRebateBalance()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4416) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/interest-rebate-balance` |
-| [getMarginInterestRebateBalanceRecords()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4420) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/interest-rebate-balance/records` |
-| [getAlphaTokenList()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4435) |  | GET | `bapi/defi/v1/public/wallet-direct/buw/wallet/cex/alpha/all/token/list` |
-| [getAlphaExchangeInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4442) |  | GET | `bapi/defi/v1/public/alpha-trade/get-exchange-info` |
-| [getAlphaAggTrades()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4449) |  | GET | `bapi/defi/v1/public/alpha-trade/agg-trades` |
-| [getAlphaKlines()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4457) |  | GET | `bapi/defi/v1/public/alpha-trade/klines` |
-| [getAlphaTicker()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4465) |  | GET | `bapi/defi/v1/public/alpha-trade/ticker` |
-| [getAlphaFullDepth()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4473) |  | GET | `bapi/defi/v1/public/alpha-trade/fullDepth` |
-| [createBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4489) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount` |
-| [getBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4495) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount` |
-| [enableMarginBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4501) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/futures` |
-| [createApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4507) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi` |
-| [changePermissionApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4513) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/permission` |
-| [changeComissionBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4519) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/permission` |
-| [enableUniversalTransferApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4525) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/permission/universalTransfer` |
-| [updateIpRestrictionForSubAccountApiKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4534) | :closed_lock_with_key:  | POST | `sapi/v2/broker/subAccountApi/ipRestriction` |
-| [deleteIPRestrictionForSubAccountApiKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4548) | :closed_lock_with_key:  | DELETE | `sapi/v1/broker/subAccountApi/ipRestriction/ipList` |
-| [deleteApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4564) | :closed_lock_with_key:  | DELETE | `sapi/v1/broker/subAccountApi` |
-| [getSubAccountBrokerIpRestriction()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4570) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi/ipRestriction` |
-| [getApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4586) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi` |
-| [getBrokerInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4592) | :closed_lock_with_key:  | GET | `sapi/v1/broker/info` |
-| [updateSubAccountBNBBurn()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4596) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/bnbBurn/spot` |
-| [updateSubAccountMarginInterestBNBBurn()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4606) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/bnbBurn/marginInterest` |
-| [getSubAccountBNBBurnStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4619) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/bnbBurn/status` |
-| [deleteBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4635) | :closed_lock_with_key:  | DELETE | `/sapi/v1/broker/subAccount` |
-| [transferBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4645) | :closed_lock_with_key:  | POST | `sapi/v1/broker/transfer` |
-| [getBrokerSubAccountHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4651) | :closed_lock_with_key:  | GET | `sapi/v1/broker/transfer` |
-| [submitBrokerSubFuturesTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4657) | :closed_lock_with_key:  | POST | `sapi/v1/broker/transfer/futures` |
-| [getSubAccountFuturesTransferHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4672) | :closed_lock_with_key:  | GET | `sapi/v1/broker/transfer/futures` |
-| [getBrokerSubDepositHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4684) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/depositHist` |
-| [getBrokerSubAccountSpotAssets()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4690) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/spotSummary` |
-| [getSubAccountMarginAssetInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4699) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/marginSummary` |
-| [querySubAccountFuturesAssetInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4708) | :closed_lock_with_key:  | GET | `sapi/v3/broker/subAccount/futuresSummary` |
-| [universalTransferBroker()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4717) | :closed_lock_with_key:  | POST | `sapi/v1/broker/universalTransfer` |
-| [getUniversalTransferBroker()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4724) | :closed_lock_with_key:  | GET | `sapi/v1/broker/universalTransfer` |
-| [updateBrokerSubAccountCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4736) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/commission` |
-| [updateBrokerSubAccountFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4742) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/commission/futures` |
-| [getBrokerSubAccountFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4751) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi/commission/futures` |
-| [updateBrokerSubAccountCoinFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4760) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/commission/coinFutures` |
-| [getBrokerSubAccountCoinFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4769) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi/commission/coinFutures` |
-| [getBrokerSpotCommissionRebate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4778) | :closed_lock_with_key:  | GET | `sapi/v1/broker/rebate/recentRecord` |
-| [getBrokerFuturesCommissionRebate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4784) | :closed_lock_with_key:  | GET | `sapi/v1/broker/rebate/futures/recentRecord` |
-| [getBrokerIfNewSpotUser()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4821) | :closed_lock_with_key:  | GET | `sapi/v1/apiReferral/ifNewUser` |
-| [getBrokerSubAccountDepositHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4832) | :closed_lock_with_key:  | GET | `sapi/v1/bv1/apiReferral/ifNewUser` |
-| [enableFuturesBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4851) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount` |
-| [enableMarginApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4861) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/margin` |
-| [getSpotUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4902) |  | POST | `api/v3/userDataStream` |
-| [keepAliveSpotUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4906) |  | PUT | `api/v3/userDataStream?listenKey=${listenKey}` |
-| [closeSpotUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4910) |  | DELETE | `api/v3/userDataStream?listenKey=${listenKey}` |
-| [getMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4917) |  | POST | `sapi/v1/userDataStream` |
-| [keepAliveMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4921) |  | PUT | `sapi/v1/userDataStream?listenKey=${listenKey}` |
-| [closeMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4925) |  | DELETE | `sapi/v1/userDataStream?listenKey=${listenKey}` |
-| [getIsolatedMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4930) |  | POST | `sapi/v1/userDataStream/isolated?${serialiseParams(params` |
-| [keepAliveIsolatedMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4938) |  | PUT | `sapi/v1/userDataStream/isolated?${serialiseParams(params` |
-| [closeIsolatedMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4947) |  | DELETE | `sapi/v1/userDataStream/isolated?${serialiseParams(params` |
-| [getMarginRiskUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4959) |  | POST | `sapi/v1/margin/listen-key` |
-| [keepAliveMarginRiskUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4963) |  | PUT | `sapi/v1/margin/listen-key?listenKey=${listenKey}` |
-| [closeMarginRiskUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4967) |  | DELETE | `sapi/v1/margin/listen-key` |
-| [getMarginUtaUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4971) |  | POST | `sapi/v2/margin/uta/listen-key` |
-| [keepAliveMarginUtaUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4975) |  | PUT | `sapi/v2/margin/uta/listen-key?listenKey=${listenKey}` |
-| [closeMarginUtaUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4979) |  | DELETE | `sapi/v2/margin/uta/listen-key` |
-| [getMarginListenToken()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4987) | :closed_lock_with_key:  | POST | `sapi/v1/userListenToken` |
-| [getBSwapLiquidity()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5009) | :closed_lock_with_key:  | GET | `sapi/v1/bswap/liquidity` |
-| [addBSwapLiquidity()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5016) | :closed_lock_with_key:  | POST | `sapi/v1/bswap/liquidityAdd` |
-| [removeBSwapLiquidity()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5025) | :closed_lock_with_key:  | POST | `sapi/v1/bswap/liquidityRemove` |
-| [getBSwapOperations()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5034) | :closed_lock_with_key:  | GET | `sapi/v1/bswap/liquidityOps` |
-| [getLeftDailyPurchaseQuotaFlexibleProduct()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5049) | :closed_lock_with_key:  | GET | `sapi/v1/lending/daily/userLeftQuota` |
-| [getLeftDailyRedemptionQuotaFlexibleProduct()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5058) | :closed_lock_with_key:  | GET | `sapi/v1/lending/daily/userRedemptionQuota` |
-| [purchaseFixedAndActivityProject()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5072) | :closed_lock_with_key:  | POST | `sapi/v1/lending/customizedFixed/purchase` |
-| [getFixedAndActivityProjects()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5082) | :closed_lock_with_key:  | GET | `sapi/v1/lending/project/list` |
-| [getFixedAndActivityProductPosition()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5091) | :closed_lock_with_key:  | GET | `sapi/v1/lending/project/position/list` |
-| [getLendingAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5100) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/account` |
-| [getPurchaseRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5107) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/purchaseRecord` |
-| [getRedemptionRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5114) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/redemptionRecord` |
-| [getInterestHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5121) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/interestHistory` |
-| [changeFixedAndActivityPositionToDailyPosition()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5128) | :closed_lock_with_key:  | POST | `sapi/v1/lending/positionChanged` |
-| [enableConvertSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5145) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/convert` |
-| [convertBUSD()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5153) | :closed_lock_with_key:  | POST | `sapi/v1/asset/convert-transfer` |
-| [getConvertBUSDHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5160) | :closed_lock_with_key:  | GET | `sapi/v1/asset/convert-transfer/queryByPage` |
+| [updateAutoCompoundStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3944) | :closed_lock_with_key:  | POST | `sapi/v1/dci/product/auto_compound/edit-status` |
+| [createGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3959) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/createCode` |
+| [createDualTokenGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3963) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/buyCode` |
+| [redeemGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3967) | :closed_lock_with_key:  | POST | `sapi/v1/giftcard/redeemCode` |
+| [verifyGiftCard()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3971) | :closed_lock_with_key:  | GET | `sapi/v1/giftcard/verify` |
+| [getTokenLimit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3975) | :closed_lock_with_key:  | GET | `sapi/v1/giftcard/buyCode/token-limit` |
+| [getRsaPublicKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3979) | :closed_lock_with_key:  | GET | `sapi/v1/giftcard/cryptography/rsa-public-key` |
+| [getNftTransactionHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3989) | :closed_lock_with_key:  | GET | `sapi/v1/nft/history/transactions` |
+| [getNftDepositHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L3996) | :closed_lock_with_key:  | GET | `sapi/v1/nft/history/deposit` |
+| [getNftWithdrawHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4003) | :closed_lock_with_key:  | GET | `sapi/v1/nft/history/withdraw` |
+| [getNftAsset()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4010) | :closed_lock_with_key:  | GET | `sapi/v1/nft/user/getAsset` |
+| [getC2CTradeHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4023) | :closed_lock_with_key:  | GET | `sapi/v1/c2c/orderMatch/listUserOrderHistory` |
+| [getFiatOrderHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4038) | :closed_lock_with_key:  | GET | `sapi/v1/fiat/orders` |
+| [getFiatPaymentsHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4044) | :closed_lock_with_key:  | GET | `sapi/v1/fiat/payments` |
+| [fiatWithdraw()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4050) | :closed_lock_with_key:  | POST | `/sapi/v2/fiat/withdraw` |
+| [fiatDeposit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4054) | :closed_lock_with_key:  | POST | `sapi/v1/fiat/deposit` |
+| [getFiatOrderDetail()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4058) | :closed_lock_with_key:  | GET | `sapi/v1/fiat/get-order-detail` |
+| [getSpotRebateHistoryRecords()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4070) | :closed_lock_with_key:  | GET | `sapi/v1/rebate/taxQuery` |
+| [getPortfolioMarginIndexPrice()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4083) |  | GET | `sapi/v1/portfolio/asset-index-price` |
+| [getPortfolioMarginAssetLeverage()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4089) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/margin-asset-leverage` |
+| [getPortfolioMarginProCollateralRate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4095) |  | GET | `sapi/v1/portfolio/collateralRate` |
+| [getPortfolioMarginProTieredCollateralRate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4101) |  | GET | `sapi/v2/portfolio/collateralRate` |
+| [getPortfolioMarginProAccountInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4112) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/account` |
+| [getPortfolioDeltaMode()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4116) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/delta-mode` |
+| [switchPortfolioDeltaMode()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4120) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/delta-mode` |
+| [setPortfolioMarginMarginCallLevel()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4126) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/margin-call-level` |
+| [getPortfolioMarginMarginCallLevel()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4132) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/margin-call-level` |
+| [deletePortfolioMarginMarginCallLevel()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4136) | :closed_lock_with_key:  | DELETE | `sapi/v1/portfolio/margin-call-level` |
+| [bnbTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4140) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/bnb-transfer` |
+| [submitPortfolioMarginProFullTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4146) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/auto-collection` |
+| [submitPortfolioMarginProSpecificTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4152) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/asset-collection` |
+| [repayPortfolioMarginProBankruptcyLoan()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4158) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/repay` |
+| [getPortfolioMarginProBankruptcyLoanAmount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4166) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/pmLoan` |
+| [repayFuturesNegativeBalance()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4170) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/repay-futures-negative-balance` |
+| [updateAutoRepayFuturesStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4176) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/repay-futures-switch` |
+| [getAutoRepayFuturesStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4182) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/repay-futures-switch` |
+| [getPortfolioMarginProInterestHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4188) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/interest-history` |
+| [getPortfolioMarginProSpanAccountInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4194) | :closed_lock_with_key:  | GET | `sapi/v2/portfolio/account` |
+| [getPortfolioMarginProAccountBalance()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4198) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/balance` |
+| [mintPortfolioMarginBFUSD()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4208) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/mint` |
+| [redeemPortfolioMarginBFUSD()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4218) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/redeem` |
+| [getPortfolioMarginBankruptcyLoanRepayHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4226) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/pmLoan-history` |
+| [transferLDUSDTPortfolioMargin()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4241) | :closed_lock_with_key:  | POST | `sapi/v1/portfolio/earn-asset-transfer` |
+| [getTransferableEarnAssetBalanceForPortfolioMargin()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4254) | :closed_lock_with_key:  | GET | `sapi/v1/portfolio/earn-asset-balance` |
+| [getFuturesTickLevelOrderbookDataLink()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4271) | :closed_lock_with_key:  | GET | `sapi/v1/futures/histDataLink` |
+| [getBlvtInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4285) |  | GET | `sapi/v1/blvt/tokenInfo` |
+| [subscribeBlvt()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4289) | :closed_lock_with_key:  | POST | `sapi/v1/blvt/subscribe` |
+| [getBlvtSubscriptionRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4293) | :closed_lock_with_key:  | GET | `sapi/v1/blvt/subscribe/record` |
+| [redeemBlvt()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4299) | :closed_lock_with_key:  | POST | `sapi/v1/blvt/redeem` |
+| [getBlvtRedemptionRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4303) | :closed_lock_with_key:  | GET | `sapi/v1/blvt/redeem/record` |
+| [getBlvtUserLimitInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4309) | :closed_lock_with_key:  | GET | `sapi/v1/blvt/userLimit` |
+| [getPayTransactions()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4320) | :closed_lock_with_key:  | GET | `sapi/v1/pay/transactions` |
+| [getInstLoanRiskUnit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4330) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/ltv-details` |
+| [closeInstLoanRiskUnit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4336) | :closed_lock_with_key:  | DELETE | `sapi/v1/margin/loan-group` |
+| [addInstLoanCollateralAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4340) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/edit-member` |
+| [getActiveInstLoanRiskUnits()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4346) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-groups/activated` |
+| [getClosedInstLoanRiskUnits()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4350) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-groups/closed` |
+| [getInstLoanForceLiquidationRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4362) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/force-liquidation` |
+| [transferInstLoanRiskUnit()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4376) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/transfer-out` |
+| [getInstitutionalLoanMaxBorrowable()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4388) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/max-borrowable` |
+| [borrowInstitutionalLoan()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4394) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/borrow` |
+| [getInstLoanInterestHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4400) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/interest-history` |
+| [repayInstitutionalLoan()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4409) | :closed_lock_with_key:  | POST | `sapi/v1/margin/loan-group/repay` |
+| [getInstLoanBorrowRepayRecords()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4415) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/borrow-repay` |
+| [getMarginInterestRebateBalance()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4421) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/interest-rebate-balance` |
+| [getMarginInterestRebateBalanceRecords()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4425) | :closed_lock_with_key:  | GET | `sapi/v1/margin/loan-group/interest-rebate-balance/records` |
+| [getAlphaTokenList()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4440) |  | GET | `bapi/defi/v1/public/wallet-direct/buw/wallet/cex/alpha/all/token/list` |
+| [getAlphaExchangeInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4447) |  | GET | `bapi/defi/v1/public/alpha-trade/get-exchange-info` |
+| [getAlphaAggTrades()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4454) |  | GET | `bapi/defi/v1/public/alpha-trade/agg-trades` |
+| [getAlphaKlines()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4462) |  | GET | `bapi/defi/v1/public/alpha-trade/klines` |
+| [getAlphaTicker()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4470) |  | GET | `bapi/defi/v1/public/alpha-trade/ticker` |
+| [getAlphaFullDepth()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4478) |  | GET | `bapi/defi/v1/public/alpha-trade/fullDepth` |
+| [createBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4494) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount` |
+| [getBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4500) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount` |
+| [enableMarginBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4506) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/futures` |
+| [createApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4512) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi` |
+| [changePermissionApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4518) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/permission` |
+| [changeComissionBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4524) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/permission` |
+| [enableUniversalTransferApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4530) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/permission/universalTransfer` |
+| [updateIpRestrictionForSubAccountApiKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4539) | :closed_lock_with_key:  | POST | `sapi/v2/broker/subAccountApi/ipRestriction` |
+| [deleteIPRestrictionForSubAccountApiKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4553) | :closed_lock_with_key:  | DELETE | `sapi/v1/broker/subAccountApi/ipRestriction/ipList` |
+| [deleteApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4569) | :closed_lock_with_key:  | DELETE | `sapi/v1/broker/subAccountApi` |
+| [getSubAccountBrokerIpRestriction()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4575) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi/ipRestriction` |
+| [getApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4591) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi` |
+| [getBrokerInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4597) | :closed_lock_with_key:  | GET | `sapi/v1/broker/info` |
+| [updateSubAccountBNBBurn()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4601) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/bnbBurn/spot` |
+| [updateSubAccountMarginInterestBNBBurn()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4611) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/bnbBurn/marginInterest` |
+| [getSubAccountBNBBurnStatus()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4624) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/bnbBurn/status` |
+| [deleteBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4640) | :closed_lock_with_key:  | DELETE | `/sapi/v1/broker/subAccount` |
+| [transferBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4650) | :closed_lock_with_key:  | POST | `sapi/v1/broker/transfer` |
+| [getBrokerSubAccountHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4656) | :closed_lock_with_key:  | GET | `sapi/v1/broker/transfer` |
+| [submitBrokerSubFuturesTransfer()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4662) | :closed_lock_with_key:  | POST | `sapi/v1/broker/transfer/futures` |
+| [getSubAccountFuturesTransferHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4677) | :closed_lock_with_key:  | GET | `sapi/v1/broker/transfer/futures` |
+| [getBrokerSubDepositHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4689) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/depositHist` |
+| [getBrokerSubAccountSpotAssets()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4695) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/spotSummary` |
+| [getSubAccountMarginAssetInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4704) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccount/marginSummary` |
+| [querySubAccountFuturesAssetInfo()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4713) | :closed_lock_with_key:  | GET | `sapi/v3/broker/subAccount/futuresSummary` |
+| [universalTransferBroker()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4722) | :closed_lock_with_key:  | POST | `sapi/v1/broker/universalTransfer` |
+| [getUniversalTransferBroker()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4729) | :closed_lock_with_key:  | GET | `sapi/v1/broker/universalTransfer` |
+| [updateBrokerSubAccountCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4741) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/commission` |
+| [updateBrokerSubAccountFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4747) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/commission/futures` |
+| [getBrokerSubAccountFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4756) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi/commission/futures` |
+| [updateBrokerSubAccountCoinFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4765) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccountApi/commission/coinFutures` |
+| [getBrokerSubAccountCoinFuturesCommission()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4774) | :closed_lock_with_key:  | GET | `sapi/v1/broker/subAccountApi/commission/coinFutures` |
+| [getBrokerSpotCommissionRebate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4783) | :closed_lock_with_key:  | GET | `sapi/v1/broker/rebate/recentRecord` |
+| [getBrokerFuturesCommissionRebate()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4789) | :closed_lock_with_key:  | GET | `sapi/v1/broker/rebate/futures/recentRecord` |
+| [getBrokerIfNewSpotUser()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4826) | :closed_lock_with_key:  | GET | `sapi/v1/apiReferral/ifNewUser` |
+| [getBrokerSubAccountDepositHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4837) | :closed_lock_with_key:  | GET | `sapi/v1/bv1/apiReferral/ifNewUser` |
+| [enableFuturesBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4856) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount` |
+| [enableMarginApiKeyBrokerSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4866) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/margin` |
+| [getSpotUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4907) |  | POST | `api/v3/userDataStream` |
+| [keepAliveSpotUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4911) |  | PUT | `api/v3/userDataStream?listenKey=${listenKey}` |
+| [closeSpotUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4915) |  | DELETE | `api/v3/userDataStream?listenKey=${listenKey}` |
+| [getMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4922) |  | POST | `sapi/v1/userDataStream` |
+| [keepAliveMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4926) |  | PUT | `sapi/v1/userDataStream?listenKey=${listenKey}` |
+| [closeMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4930) |  | DELETE | `sapi/v1/userDataStream?listenKey=${listenKey}` |
+| [getIsolatedMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4935) |  | POST | `sapi/v1/userDataStream/isolated?${serialiseParams(params` |
+| [keepAliveIsolatedMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4943) |  | PUT | `sapi/v1/userDataStream/isolated?${serialiseParams(params` |
+| [closeIsolatedMarginUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4952) |  | DELETE | `sapi/v1/userDataStream/isolated?${serialiseParams(params` |
+| [getMarginRiskUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4964) |  | POST | `sapi/v1/margin/listen-key` |
+| [keepAliveMarginRiskUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4968) |  | PUT | `sapi/v1/margin/listen-key?listenKey=${listenKey}` |
+| [closeMarginRiskUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4972) |  | DELETE | `sapi/v1/margin/listen-key` |
+| [getMarginUtaUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4976) |  | POST | `sapi/v2/margin/uta/listen-key` |
+| [keepAliveMarginUtaUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4980) |  | PUT | `sapi/v2/margin/uta/listen-key?listenKey=${listenKey}` |
+| [closeMarginUtaUserDataListenKey()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4984) |  | DELETE | `sapi/v2/margin/uta/listen-key` |
+| [getMarginListenToken()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L4992) | :closed_lock_with_key:  | POST | `sapi/v1/userListenToken` |
+| [getBSwapLiquidity()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5014) | :closed_lock_with_key:  | GET | `sapi/v1/bswap/liquidity` |
+| [addBSwapLiquidity()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5021) | :closed_lock_with_key:  | POST | `sapi/v1/bswap/liquidityAdd` |
+| [removeBSwapLiquidity()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5030) | :closed_lock_with_key:  | POST | `sapi/v1/bswap/liquidityRemove` |
+| [getBSwapOperations()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5039) | :closed_lock_with_key:  | GET | `sapi/v1/bswap/liquidityOps` |
+| [getLeftDailyPurchaseQuotaFlexibleProduct()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5054) | :closed_lock_with_key:  | GET | `sapi/v1/lending/daily/userLeftQuota` |
+| [getLeftDailyRedemptionQuotaFlexibleProduct()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5063) | :closed_lock_with_key:  | GET | `sapi/v1/lending/daily/userRedemptionQuota` |
+| [purchaseFixedAndActivityProject()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5077) | :closed_lock_with_key:  | POST | `sapi/v1/lending/customizedFixed/purchase` |
+| [getFixedAndActivityProjects()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5087) | :closed_lock_with_key:  | GET | `sapi/v1/lending/project/list` |
+| [getFixedAndActivityProductPosition()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5096) | :closed_lock_with_key:  | GET | `sapi/v1/lending/project/position/list` |
+| [getLendingAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5105) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/account` |
+| [getPurchaseRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5112) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/purchaseRecord` |
+| [getRedemptionRecord()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5119) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/redemptionRecord` |
+| [getInterestHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5126) | :closed_lock_with_key:  | GET | `sapi/v1/lending/union/interestHistory` |
+| [changeFixedAndActivityPositionToDailyPosition()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5133) | :closed_lock_with_key:  | POST | `sapi/v1/lending/positionChanged` |
+| [enableConvertSubAccount()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5150) | :closed_lock_with_key:  | POST | `sapi/v1/broker/subAccount/convert` |
+| [convertBUSD()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5158) | :closed_lock_with_key:  | POST | `sapi/v1/asset/convert-transfer` |
+| [getConvertBUSDHistory()](https://github.com/sieblyio/binance/blob/master/src/main-client.ts#L5165) | :closed_lock_with_key:  | GET | `sapi/v1/asset/convert-transfer/queryByPage` |
 
 # usdm-client.ts
 

@@ -3514,6 +3514,10 @@ export interface SubscribeDualInvestmentProductParams {
   id: string;
   orderId: string;
   depositAmount: number;
+  /**
+   * @deprecated Binance removed the `autoCompoundPlan` request parameter from
+   * `POST /sapi/v1/dci/product/subscribe`. Configure auto-compound in the Binance web UI.
+   */
   autoCompoundPlan: 'NONE' | 'STANDARD' | 'ADVANCED';
 }
 
@@ -3572,6 +3576,10 @@ export interface CheckDualInvestmentAccountsResponse {
   totalAmountInUSDT: string;
 }
 
+/**
+ * @deprecated Binance removed `POST /sapi/v1/dci/product/auto_compound/edit-status`.
+ * Configure auto-compound for Dual Investment positions in the Binance web UI.
+ */
 export interface ChangeAutoCompoundStatusParams {
   positionId: string;
   autoCompoundPlan: 'NONE' | 'STANDARD' | 'ADVANCED';
