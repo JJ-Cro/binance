@@ -4677,6 +4677,8 @@ export interface SpotAlgoOrder {
   algoStatus: string;
   algoType: string;
   urgency: string;
+  /** Order duration in seconds. Only returned for TWAP orders. */
+  duration?: number;
 }
 
 export interface GetSpotAlgoHistoricalOrdersParams {
@@ -4702,6 +4704,8 @@ export interface HistoricalSpotAlgoOrder {
   algoStatus: string;
   algoType: string;
   urgency: string;
+  /** Order duration in seconds. Only returned for TWAP orders. */
+  duration?: number;
 }
 
 export interface GetSpotAlgoSubOrdersParams {
@@ -5063,6 +5067,8 @@ export interface GetVipLoanRepaymentHistoryParams {
 export interface VipLoanRepaymentHistory {
   loanCoin: string;
   repayAmount: string;
+  repayInterest: string;
+  repayPrincipal: string;
   collateralCoin: string;
   repayStatus: string;
   loanDate: string;

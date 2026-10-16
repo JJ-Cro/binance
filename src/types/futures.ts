@@ -234,13 +234,16 @@ export interface GetPositionMarginChangeHistoryParams {
   limit?: number;
 }
 
+/**
+ * Income history query for `GET /fapi/v1/income` and `GET /dapi/v1/income`.
+ * Paginate with `startTime` and `endTime`. `page` is not accepted.
+ */
 export interface GetIncomeHistoryParams {
   symbol?: string;
   incomeType?: IncomeType;
   startTime?: number;
   endTime?: number;
   limit?: number;
-  page?: number;
 }
 
 export interface IncomeHistory {

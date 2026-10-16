@@ -491,6 +491,10 @@ export class CoinMClient extends BaseRestClient {
     return this.getPrivate('dapi/v1/positionSide/dual');
   }
 
+  /**
+   * Query income history (`GET /dapi/v1/income`).
+   * Paginate with `startTime` and `endTime`. `page` is not accepted.
+   */
   getIncomeHistory(params?: GetIncomeHistoryParams): Promise<IncomeHistory[]> {
     return this.getPrivate('dapi/v1/income', params);
   }

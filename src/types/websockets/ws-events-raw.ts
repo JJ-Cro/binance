@@ -255,6 +255,8 @@ export interface WsMessageSpotUserDataExecutionReportEventRaw
   J?: number;
   u?: number;
   U?: number;
+  /** Allocation ID. */
+  a?: number;
   A?: numberInString;
   B?: numberInString;
   Cs?: string;

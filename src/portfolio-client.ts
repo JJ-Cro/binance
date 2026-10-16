@@ -758,7 +758,18 @@ export class PortfolioClient extends BaseRestClient {
     return this.postPrivate('papi/v1/auto-collection');
   }
 
-  transferAssetFuturesMargin(params: { asset: string }): Promise<{
+  /**
+   * Fund collection by asset (`POST /papi/v1/asset-collection`).
+   *
+   * Optional `amount` and `futureType` must be sent together. `futureType`
+   * is the target wallet (`UM`, `CM`, or `OPTION`; `OPTION` is SPAN only).
+   * If neither is sent, collection behavior is unchanged.
+   */
+  transferAssetFuturesMargin(params: {
+    asset: string;
+    amount?: number;
+    futureType?: 'UM' | 'CM' | 'OPTION';
+  }): Promise<{
     msg: string;
   }> {
     return this.postPrivate('papi/v1/asset-collection', params);

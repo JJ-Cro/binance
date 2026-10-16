@@ -292,6 +292,8 @@ export interface WsMessageSpotUserDataExecutionReportEventFormatted
   strategyType?: number;
   tradeGroupId?: number;
   counterOrderId?: number;
+  /** Allocation ID. */
+  allocationId?: number;
   preventedQuantity?: number;
   lastPreventedQuantity?: number;
   counterSymbol?: string;
