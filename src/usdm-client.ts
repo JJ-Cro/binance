@@ -580,6 +580,10 @@ export class USDMClient extends BaseRestClient {
     return this.getPrivate('fapi/v1/positionSide/dual');
   }
 
+  /**
+   * Query income history (`GET /fapi/v1/income`).
+   * Paginate with `startTime` and `endTime`. `page` is not accepted.
+   */
   getIncomeHistory(params?: GetIncomeHistoryParams): Promise<IncomeHistory[]> {
     return this.getPrivate('fapi/v1/income', params);
   }

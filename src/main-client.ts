@@ -4149,7 +4149,18 @@ export class MainClient extends BaseRestClient {
     return this.postPrivate('sapi/v1/portfolio/auto-collection');
   }
 
-  submitPortfolioMarginProSpecificTransfer(params: { asset: string }): Promise<{
+  /**
+   * Fund collection by asset (`POST /sapi/v1/portfolio/asset-collection`).
+   *
+   * Optional `amount` and `futureType` must be sent together. `futureType`
+   * is the target wallet (`UM`, `CM`, or `OPTION`; `OPTION` is SPAN only).
+   * If neither is sent, collection behavior is unchanged.
+   */
+  submitPortfolioMarginProSpecificTransfer(params: {
+    asset: string;
+    amount?: number;
+    futureType?: 'UM' | 'CM' | 'OPTION';
+  }): Promise<{
     msg: string;
   }> {
     return this.postPrivate('sapi/v1/portfolio/asset-collection', params);

@@ -551,6 +551,7 @@ export const BEAUTIFIER_EVENT_MAP = {
     J: 'strategyType',
     u: 'tradeGroupId',
     U: 'counterOrderId',
+    a: 'allocationId',
     A: 'preventedQuantity',
     B: 'lastPreventedQuantity',
     Cs: 'counterSymbol',
