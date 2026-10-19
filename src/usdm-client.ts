@@ -467,6 +467,12 @@ export class USDMClient extends BaseRestClient {
     return this.postPrivate('fapi/v1/positionSide/dual', params);
   }
 
+  /**
+   * Change initial leverage (`POST /fapi/v1/leverage`).
+   * `leverage` is an unbounded number here. The maximum is symbol-specific:
+   * bracket 1 `initialLeverage` from `GET /fapi/v1/leverageBracket`
+   * (Binance derivatives changelog 2026-10-09).
+   */
   setLeverage(params: SetLeverageParams): Promise<SetLeverageResult> {
     return this.postPrivate('fapi/v1/leverage', params);
   }

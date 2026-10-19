@@ -618,6 +618,12 @@ export class PortfolioClient extends BaseRestClient {
     return this.getPrivate('papi/v1/cm/positionRisk', params);
   }
 
+  /**
+   * Change UM initial leverage (`POST /papi/v1/um/leverage`).
+   * `leverage` is an unbounded number here. The maximum is symbol-specific:
+   * bracket 1 `initialLeverage` from `GET /papi/v1/um/leverageBracket`
+   * (Binance derivatives changelog 2026-10-09).
+   */
   updateUMLeverage(params: { symbol: string; leverage: number }): Promise<{
     leverage: number;
     maxNotionalValue: string;

@@ -3940,6 +3940,8 @@ export class MainClient extends BaseRestClient {
    * @deprecated Binance removed `POST /sapi/v1/dci/product/auto_compound/edit-status`.
    * Calls to this method will fail. Configure auto-compound for Dual Investment positions
    * in the Binance web UI. This method will be removed in a future major version.
+   * connector-js dual-investment v6.0.0 removed `changeAutoCompoundStatus`. The published
+   * binance-api-swagger spec still lists the endpoint, so this method stays deprecated.
    */
   updateAutoCompoundStatus(
     params: ChangeAutoCompoundStatusParams,
