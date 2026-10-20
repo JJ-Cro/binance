@@ -307,6 +307,19 @@ export interface FuturesSymbolMinNotionalFilter {
   notional: numberInString;
 }
 
+/**
+ * Undocumented USDⓈ-M `exchangeInfo` filter. Not in the published filter schema.
+ * Observed on live symbols (for example BTCUSDT) with `positionControlSide: "NONE"`.
+ * connector-python leaves it in `additional_properties`.
+ */
+export interface FuturesSymbolPositionRiskControlFilter {
+  filterType: 'POSITION_RISK_CONTROL';
+  /**
+   * Undocumented. Observed value: `NONE`.
+   */
+  positionControlSide: string;
+}
+
 export type FuturesSymbolFilter =
   | SymbolPriceFilter
   | FuturesSymbolPercentPriceFilter
@@ -317,7 +330,8 @@ export type FuturesSymbolFilter =
   | FuturesSymbolMaxOrdersFilter
   | FuturesSymbolMaxAlgoOrdersFilter
   | SymbolMaxIcebergOrdersFilter
-  | SymbolMaxPositionFilter;
+  | SymbolMaxPositionFilter
+  | FuturesSymbolPositionRiskControlFilter;
 
 export interface FuturesSymbolExchangeInfo {
   symbol: string;

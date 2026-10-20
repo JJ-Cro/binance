@@ -930,7 +930,11 @@ export interface SORTestOrderResponse {
     enabledForAccount: boolean;
     enabledForSymbol: boolean;
     discountAsset: string;
-    discount: numberInString; //Standard commission is reduced by this rate when paying commission in BNB.
+    /**
+     * Multiplier on standard commission when paying in `discountAsset`.
+     * `0.75` means pay 75% of the standard commission. The FAQ example `0.25` is fictional.
+     */
+    discount: numberInString; //Standard commission is reduced by this rate when paying commission in BNB. Staff later confirmed this is a multiplier: 0.75 means pay 75% of standard. The FAQ 0.25 example is fictional.
   };
 }
 
@@ -1131,12 +1135,21 @@ export interface QueryMarginAssetResponse {
   isMortgageable: boolean;
   userMinBorrow: numberInString;
   userMinRepay: numberInString;
+  /**
+   * Unix time in milliseconds. Omitted when null, and present only once the asset is `PREPARE_DELIST`.
+   * Dev-confirmed on dev.binance.vision: the published example that shows seconds is wrong.
+   */
+  delistTime?: number;
 }
 
 export interface QueryCrossMarginPairParams {
   symbol: string;
 }
 
+/**
+ * Row from `GET /sapi/v1/margin/allPairs`.
+ * Dev-confirmed: this response has no `delistTime`. Documentation examples that include it are wrong.
+ */
 export interface QueryCrossMarginPairResponse {
   id: number;
   symbol: string;
@@ -3006,6 +3019,12 @@ export interface CommissionRates {
     enabledForAccount: boolean;
     enabledForSymbol: boolean;
     discountAsset: string;
+    /**
+     * Multiplier on standard commission when paying in `discountAsset` (`GET /api/v3/account/commission`).
+     * `0.75` means pay 75% of the standard commission. It is not a reduction rate.
+     * Staff confirmed this on binance.vision. The FAQ example `0.25` is fictional.
+     * Does not apply to tax or special commission.
+     */
     discount: string;
   };
 }
@@ -3517,6 +3536,9 @@ export interface SubscribeDualInvestmentProductParams {
   /**
    * @deprecated Binance removed the `autoCompoundPlan` request parameter from
    * `POST /sapi/v1/dci/product/subscribe`. Configure auto-compound in the Binance web UI.
+   * connector-js dual-investment v6.0.0 drops this parameter. Its OpenAPI description says
+   * auto-compound is toggled in the Binance web UI. The published binance-api-swagger spec
+   * still lists the parameter, so this field stays deprecated.
    */
   autoCompoundPlan: 'NONE' | 'STANDARD' | 'ADVANCED';
 }
@@ -3579,6 +3601,8 @@ export interface CheckDualInvestmentAccountsResponse {
 /**
  * @deprecated Binance removed `POST /sapi/v1/dci/product/auto_compound/edit-status`.
  * Configure auto-compound for Dual Investment positions in the Binance web UI.
+ * connector-js dual-investment v6.0.0 removed `changeAutoCompoundStatus`. The published
+ * binance-api-swagger spec still lists the endpoint, so this type stays deprecated.
  */
 export interface ChangeAutoCompoundStatusParams {
   positionId: string;

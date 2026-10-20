@@ -53,6 +53,10 @@ const exchangeInfo = {
           filterType: 'MAX_POSITION',
           maxPosition: '500',
         },
+        {
+          filterType: 'POSITION_RISK_CONTROL',
+          positionControlSide: 'NONE',
+        },
       ],
     },
   ],

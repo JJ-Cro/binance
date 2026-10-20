@@ -219,6 +219,10 @@ export interface WSAPIAccountCommission {
     enabledForAccount: boolean;
     enabledForSymbol: boolean;
     discountAsset: string;
+    /**
+     * Multiplier on standard commission when paying in `discountAsset`.
+     * `0.75` means pay 75% of the standard commission. The FAQ example `0.25` is fictional.
+     */
     discount: numberInString;
   };
 }
@@ -349,6 +353,10 @@ export interface WSAPIOrderTestWithCommission {
     enabledForAccount: boolean;
     enabledForSymbol: boolean;
     discountAsset: string;
+    /**
+     * Multiplier on standard commission when paying in `discountAsset`.
+     * `0.75` means pay 75% of the standard commission. The FAQ example `0.25` is fictional.
+     */
     discount: numberInString;
   };
 }
@@ -490,6 +498,10 @@ export interface WSAPISOROrderTestResponseWithCommission {
     enabledForAccount: boolean;
     enabledForSymbol: boolean;
     discountAsset: string;
+    /**
+     * Multiplier on standard commission when paying in `discountAsset`.
+     * `0.75` means pay 75% of the standard commission. The FAQ example `0.25` is fictional.
+     */
     discount: numberInString;
   };
 }
