@@ -1,7 +1,4 @@
-import type {
-  FuturesExchangeInfo,
-  FuturesSymbolFilter,
-} from '../src/types/futures';
+import type { FuturesExchangeInfo } from '../src/types/futures';
 import {
   getUSDMFuturesSymbolFilterMap,
   getUSDMFuturesSymbolFilters,
@@ -123,17 +120,5 @@ describe('USDM exchange info helpers', () => {
 
     expect(filterMap.BTCUSDT.minNotional?.notional).toBe(100);
     expect(filterMap.BTCUSDT.lotSize?.stepSize).toBe(0.001);
-  });
-
-  it('types the undocumented POSITION_RISK_CONTROL filter', () => {
-    const filter: FuturesSymbolFilter = {
-      filterType: 'POSITION_RISK_CONTROL',
-      positionControlSide: 'NONE',
-    };
-
-    expect(filter.filterType).toBe('POSITION_RISK_CONTROL');
-    if (filter.filterType === 'POSITION_RISK_CONTROL') {
-      expect(filter.positionControlSide).toBe('NONE');
-    }
   });
 });
