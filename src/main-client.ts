@@ -3468,6 +3468,10 @@ export class MainClient extends BaseRestClient {
     return this.getPrivate('sapi/v1/loan/collateral/data', params);
   }
 
+  /**
+   * @deprecated Stable Rate history was retired on 2026-10-16.
+   * `GET /sapi/v1/loan/income` returns HTTP 404. Flexible Rate v2 is unaffected.
+   */
   getCryptoLoansIncomeHistory(
     params: GetCryptoLoansIncomeHistoryParams,
   ): Promise<GetCryptoLoansIncomeHistoryResponse[]> {
@@ -3533,6 +3537,10 @@ export class MainClient extends BaseRestClient {
     return this.getPrivate('sapi/v1/loan/ongoing/orders', params);
   }
 
+  /**
+   * @deprecated Stable Rate history was retired on 2026-10-16.
+   * `GET /sapi/v1/loan/borrow/history` returns HTTP 404. Flexible Rate v2 is unaffected.
+   */
   getCryptoLoanBorrowHistory(params: GetLoanBorrowHistoryParams): Promise<{
     rows: LoanBorrowHistory[];
     total: number;
@@ -3540,6 +3548,10 @@ export class MainClient extends BaseRestClient {
     return this.getPrivate('sapi/v1/loan/borrow/history', params);
   }
 
+  /**
+   * @deprecated Stable Rate history was retired on 2026-10-16.
+   * `GET /sapi/v1/loan/ltv/adjustment/history` returns HTTP 404. Flexible Rate v2 is unaffected.
+   */
   getCryptoLoanLTVAdjustmentHistory(
     params: GetLoanLTVAdjustmentHistoryParams,
   ): Promise<{
@@ -3549,6 +3561,10 @@ export class MainClient extends BaseRestClient {
     return this.getPrivate('sapi/v1/loan/ltv/adjustment/history', params);
   }
 
+  /**
+   * @deprecated Stable Rate history was retired on 2026-10-16.
+   * `GET /sapi/v1/loan/repay/history` returns HTTP 404. Flexible Rate v2 is unaffected.
+   */
   getCryptoLoanRepaymentHistory(
     params: GetLoanRepaymentHistoryParams,
   ): Promise<any> {
@@ -4984,6 +5000,34 @@ export class MainClient extends BaseRestClient {
 
   closeMarginRiskUserDataListenKey(): Promise<object> {
     return this.delete('sapi/v1/margin/listen-key');
+  }
+
+  /**
+   * Start a Margin user data stream (`POST /sapi/v2/margin/listen-key`).
+   * Weight(IP): 1. USER_STREAM.
+   *
+   * New and migrated accounts receive -3086 from
+   * `POST /sapi/v1/margin/listen-key` and `POST /sapi/v1/userListenToken`.
+   * Connect with `wss://fstream.binance.com/private/ws/<listenKey>`.
+   */
+  getMarginUserDataListenKeyV2(): Promise<{ listenKey: string }> {
+    return this.post('sapi/v2/margin/listen-key');
+  }
+
+  /**
+   * Keepalive a Margin user data stream (`PUT /sapi/v2/margin/listen-key`).
+   * Weight(IP): 1. USER_STREAM. `listenKey` is a query parameter.
+   */
+  keepAliveMarginUserDataListenKeyV2(listenKey: string): Promise<object> {
+    return this.put(`sapi/v2/margin/listen-key?listenKey=${listenKey}`);
+  }
+
+  /**
+   * Close a Margin user data stream (`DELETE /sapi/v2/margin/listen-key`).
+   * Weight(IP): 1. USER_STREAM. The listen key is not a parameter.
+   */
+  closeMarginUserDataListenKeyV2(): Promise<object> {
+    return this.delete('sapi/v2/margin/listen-key');
   }
 
   getMarginUtaUserDataListenKey(): Promise<{ listenKey: string }> {

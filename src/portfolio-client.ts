@@ -790,12 +790,20 @@ export class PortfolioClient extends BaseRestClient {
     return this.postPrivate('papi/v1/bnb-transfer', params);
   }
 
+  /**
+   * Query UM income history (`GET /papi/v1/um/income`).
+   * Paginate with `startTime` and `endTime`. `page` is not accepted.
+   */
   getUMIncomeHistory(
     params?: QueryPortfolioUMIncomeReq,
   ): Promise<PortfolioUMIncome[]> {
     return this.getPrivate('papi/v1/um/income', params);
   }
 
+  /**
+   * Query CM income history (`GET /papi/v1/cm/income`).
+   * Paginate with `startTime` and `endTime`. `page` is not accepted.
+   */
   getCMIncomeHistory(
     params?: QueryPortfolioCMIncomeReq,
   ): Promise<PortfolioCMIncome[]> {

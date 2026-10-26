@@ -499,6 +499,11 @@ export class CoinMClient extends BaseRestClient {
     return this.getPrivate('dapi/v1/income', params);
   }
 
+  /**
+   * Get a download id for futures transaction history (`GET /dapi/v1/income/asyn`).
+   * Limited to 100 requests per month, shared across the web download page,
+   * REST, USD-M and COIN-M.
+   */
   getDownloadIdForFuturesTransactionHistory(params: {
     startTime: number;
     endTime: number;

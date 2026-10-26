@@ -24,7 +24,16 @@
 > [!TIP]
 > Upcoming change: As part of the [Siebly.io](https://siebly.io/) brand, this SDK is now hosted under our [Siebly.io GitHub organisation](https://github.com/sieblyio). The migration is seamless and requires no user changes.
 
-Updated & performant JavaScript & Node.js SDK for the Binance REST APIs and WebSockets:
+Updated & performant JavaScript & Node.js SDK for the Binance REST APIs and WebSockets.
+
+Spot user data stream (listen key is created and kept alive for you):
+
+```javascript
+import { WebsocketClient } from 'binance';
+const ws = new WebsocketClient({ api_key: 'key', api_secret: 'secret' });
+ws.on('formattedMessage', (data) => console.log(data));
+ws.subscribeSpotUserDataStream();
+```
 
 - Professional, robust & performant Binance SDK with leading trading volume in production (livenet).
 - Extensive integration with Binance REST APIs, WebSockets & WebSocket APIs.

@@ -600,6 +600,11 @@ export class USDMClient extends BaseRestClient {
     return this.getPrivate('fapi/v1/apiTradingStatus', params);
   }
 
+  /**
+   * Get a download id for futures transaction history (`GET /fapi/v1/income/asyn`).
+   * Limited to 100 requests per month, shared across the web download page,
+   * REST, USD-M and COIN-M.
+   */
   getFuturesTransactionHistoryDownloadId(params: {
     startTime: number;
     endTime: number;
