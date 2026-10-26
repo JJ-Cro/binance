@@ -259,6 +259,9 @@ export abstract class BaseWebsocketClient<
    */
   protected abstract isAuthOnConnectWsKey(wsKey: TWSKey): boolean;
 
+  /** Release resources owned by the concrete client after intentional socket closure. */
+  protected abstract onWsCloseCleanup(wsKey: TWSKey): void;
+
   protected abstract isCustomReconnectionNeeded(wsKey: TWSKey): boolean;
 
   protected abstract triggerCustomReconnectionWorkflow(
@@ -1323,6 +1326,8 @@ export abstract class BaseWebsocketClient<
       this.emit('reconnecting', { wsKey, event });
     } else {
       // intentional close - clean up
+      this.onWsCloseCleanup(wsKey);
+
       // clean up any pending promises for this connection
       this.logger.trace(
         `onWsClose(${wsKey}): rejecting all deferred promises...`,
