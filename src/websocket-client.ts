@@ -158,6 +158,15 @@ export class WebsocketClient extends BaseWebsocketClient<
     });
   }
 
+  protected onWsCloseCleanup(wsKey: WsKey): void {
+    const context = getLegacyWsKeyContext(wsKey);
+    if (context && context?.listenKey) {
+      this.getUserDataStreamManager().teardownUserDataListenKey(
+        context.listenKey,
+      );
+    }
+  }
+
   private getUserDataStreamManager(): UserDataStreamManager {
     return this.userDataStreamManager;
   }

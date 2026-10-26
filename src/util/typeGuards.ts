@@ -67,6 +67,9 @@ export function isWsFuturesConnection(data: WsFormattedMessage): boolean {
 }
 
 export function isWSAPIWsKey(wsKey: WsKey): wsKey is WSAPIWsKey {
+  // Listen-key subscriptions use derived keys rather than the static WsKey names.
+  if (wsKey.includes('_userData_')) return false;
+
   switch (wsKey) {
     case 'mainWSAPITestnet':
     case 'mainWSAPI':
