@@ -1367,12 +1367,16 @@ export type UMIncomeType =
   | 'COIN_SWAP_WITHDRAW'
   | 'POSITION_LIMIT_INCREASE_FEE';
 
+/**
+ * UM income history query for `GET /papi/v1/um/income`.
+ * Paginate with `startTime` and `endTime`. `page` is not accepted
+ * (removed 2026-10-28).
+ */
 export interface QueryPortfolioUMIncomeReq {
   symbol?: string;
   incomeType?: UMIncomeType;
   startTime?: number;
   endTime?: number;
-  page?: number;
   limit?: number; // Default 100; max 1000
 }
 
@@ -1396,12 +1400,16 @@ export type CMIncomeType =
   | 'INSURANCE_CLEAR'
   | 'DELIVERED_SETTELMENT';
 
+/**
+ * CM income history query for `GET /papi/v1/cm/income`.
+ * Paginate with `startTime` and `endTime`. `page` is not accepted
+ * (removed 2026-10-28).
+ */
 export interface QueryPortfolioCMIncomeReq {
   symbol?: string;
   incomeType?: CMIncomeType;
   startTime?: number;
   endTime?: number;
-  page?: number;
   limit?: number; // Default 100; max 1000
 }
 
